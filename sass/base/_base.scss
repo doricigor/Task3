@@ -1,0 +1,10 @@
+html {
+    font-size: 16px;
+    font-family: $lato;
+}
+
+.container {
+    @media only screen and (min-width: 1200px) {
+        max-width: 1440px;
+    }
+}
