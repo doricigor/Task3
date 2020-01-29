@@ -1,0 +1,99 @@
+.products {
+    margin-top: 33px;
+}
+.products__table {
+    font-size: 14px;
+    font-family: $lato;
+    line-height: 36px;
+
+    thead {
+        border-bottom: 1px solid $text-brown;
+    }
+    th {
+        border-top: 0;
+        color: $color-blue-light;
+        font-weight: 400;
+        font-size: 16px;
+        font-family: $lato;
+    }
+    .stars {
+        width: 76px;
+        color: $text-brown;
+        font-size: 13px;
+        vertical-align: middle;
+        padding-left: 35px;
+    }
+    .img {
+        width: 90px;
+        vertical-align: middle;
+        img {
+            width: 62%;
+        }
+    }
+    .brand {
+        width: 310px;
+        color: $text-blue;
+        font-size: 18px;
+        font-weight: bold;
+        line-height: 27px;
+        letter-spacing: 1.5px;
+        vertical-align: middle;
+        display: flex;
+        flex-direction: column;
+        padding: 17px 14px;
+    }
+    .brand__sub {
+        color: $text-brown;
+        font-size: 14px;
+        font-weight: normal;
+        letter-spacing: 1px;
+    }
+    .itemNo {
+        width: 245px;
+        vertical-align: middle;
+        color: $text-blue;
+    }
+    .listing {
+        width: 175px;
+        vertical-align: middle;
+        color: $text-brown;
+    }
+    .wholesale {
+        width: 190px;
+        vertical-align: middle;
+        color: $text-brown;
+    }
+    .qty {
+        width: 110px;
+        vertical-align: middle;
+        color: $text-brown;
+    }
+    .qty__span {
+        position: relative;
+        
+        &::before {
+            content: '\f077';
+            font-family: $icons;
+            font-weight: 900;
+            font-size: 13px;
+            position: absolute;
+            top: -17px;
+            right: -24px;
+            cursor: pointer;
+        }
+        &::after {
+            content: '\f078';
+            font-family: $icons;
+            font-weight: 900;
+            font-size: 13px;
+            position: absolute;
+            top: -2px;
+            right: -24px;
+            cursor: pointer;
+        }
+    }
+    .add {
+        width: 213px;
+        vertical-align: middle;
+    }
+}

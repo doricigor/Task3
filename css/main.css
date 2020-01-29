@@ -1,0 +1,274 @@
+html {
+  font-size: 16px;
+  font-family: "Lato", sans-serif; }
+
+@media only screen and (min-width: 1200px) {
+  .container {
+    max-width: 1440px; } }
+
+header {
+  border-top: 0.5px solid #ddccb8; }
+
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: stretch; }
+
+.header__left {
+  margin-right: 30px;
+  padding: 2px 22px 0 0; }
+
+.header__center {
+  flex: 2;
+  width: 100%;
+  border-left: 1px solid #ddccb8;
+  border-right: 1px solid #ddccb8; }
+
+.header__right {
+  display: flex;
+  padding: 30px 24px 20px 29px;
+  border-right: 1px solid #ddccb8; }
+
+.header__corp {
+  position: relative;
+  margin-top: -5px; }
+  .header__corp i {
+    color: #a9836b; }
+  .header__corp::before {
+    content: '2';
+    height: 18px;
+    width: 18px;
+    color: #fff;
+    font-size: 11px;
+    text-align: center;
+    background-color: #2f4061;
+    border-radius: 50%;
+    position: absolute;
+    top: -7px;
+    left: 13px; }
+
+.header__cashContainer {
+  display: flex;
+  flex-direction: column;
+  padding-left: 44px; }
+
+.header__total {
+  color: #919cb3; }
+
+.header__cash {
+  color: #a9836b;
+  font-size: 19px;
+  font-weight: 600;
+  position: relative;
+  font-family: "Myriad Pro", "Myriad", "Liberation Sans", "Nimbus Sans L", "Helvetica Neue", Helvetica, Arial, sans-serif; }
+  .header__cash::before {
+    content: 'Total:';
+    color: #919cb3;
+    font-size: 12px;
+    position: absolute;
+    top: -15px;
+    left: 0; }
+
+.footer {
+  background-color: #f5f2ee;
+  margin-top: 260px; }
+
+.footer__wrap {
+  display: flex;
+  justify-content: space-between; }
+
+.footer__left {
+  text-align: center;
+  flex: 2; }
+
+.footer__list {
+  list-style: none; }
+
+.footer__item {
+  padding: 10px; }
+
+.footer__link:link, .footer__link:visited {
+  text-decoration: none;
+  color: #304061;
+  font-size: 18px;
+  font-family: "Lato", sans-serif; }
+
+.gold:link, .gold:visited {
+  color: #a9836b; }
+
+.footer__center {
+  flex: 1; }
+
+.footer__right {
+  flex: 2; }
+
+.footer__email {
+  display: block;
+  width: 50%; }
+  .footer__email:link, .footer__email:visited {
+    outline: none;
+    text-transform: uppercase;
+    padding: 20px 100px;
+    background-color: transparent;
+    border: 0.5px solid #a9836b;
+    letter-spacing: 1.5px;
+    color: #304061;
+    font-size: 16px;
+    position: relative; }
+  .footer__email::before {
+    content: '\f0e0';
+    font-family: "Font Awesome 5 Pro";
+    font-weight: 900;
+    font-size: 18px;
+    position: absolute;
+    top: 50%;
+    left: 19px;
+    transform: translateY(-50%);
+    cursor: pointer; }
+  .footer__email::after {
+    content: '\f061';
+    font-family: "Font Awesome 5 Pro";
+    font-weight: 900;
+    font-size: 16px;
+    position: absolute;
+    top: 50%;
+    right: 19px;
+    transform: translateY(-50%);
+    cursor: pointer;
+    color: #a9836b; }
+
+.footer__heading {
+  font-size: 28px;
+  font-family: "Myriad Pro", "Myriad", "Liberation Sans", "Nimbus Sans L", "Helvetica Neue", Helvetica, Arial, sans-serif;
+  text-transform: uppercase;
+  line-height: 36px;
+  letter-spacing: 12px; }
+
+.inputContainer {
+  background-image: linear-gradient(0deg, #e6d7c5 5%, #fbfbfb 54%, #efe9c7 100%);
+  height: 105px;
+  position: relative; }
+
+.input {
+  padding-top: 31px; }
+
+.input__search {
+  color: #a9836b;
+  width: 100%;
+  background-color: #fff;
+  padding: 7px 47px;
+  outline: none;
+  border: 1px solid #a9836b; }
+  .input__search::placeholder {
+    color: #a9836b; }
+
+.input__icon {
+  color: #a9836b;
+  font-size: 15px;
+  position: absolute;
+  top: 40px;
+  left: 268px; }
+
+.products {
+  margin-top: 33px; }
+
+.products__table {
+  font-size: 14px;
+  font-family: "Lato", sans-serif;
+  line-height: 36px; }
+  .products__table thead {
+    border-bottom: 1px solid #a9836b; }
+  .products__table th {
+    border-top: 0;
+    color: #919cb3;
+    font-weight: 400;
+    font-size: 16px;
+    font-family: "Lato", sans-serif; }
+  .products__table .stars {
+    width: 76px;
+    color: #a9836b;
+    font-size: 13px;
+    vertical-align: middle;
+    padding-left: 35px; }
+  .products__table .img {
+    width: 90px;
+    vertical-align: middle; }
+    .products__table .img img {
+      width: 62%; }
+  .products__table .brand {
+    width: 310px;
+    color: #304061;
+    font-size: 18px;
+    font-weight: bold;
+    line-height: 27px;
+    letter-spacing: 1.5px;
+    vertical-align: middle;
+    display: flex;
+    flex-direction: column;
+    padding: 17px 14px; }
+  .products__table .brand__sub {
+    color: #a9836b;
+    font-size: 14px;
+    font-weight: normal;
+    letter-spacing: 1px; }
+  .products__table .itemNo {
+    width: 245px;
+    vertical-align: middle;
+    color: #304061; }
+  .products__table .listing {
+    width: 175px;
+    vertical-align: middle;
+    color: #a9836b; }
+  .products__table .wholesale {
+    width: 190px;
+    vertical-align: middle;
+    color: #a9836b; }
+  .products__table .qty {
+    width: 110px;
+    vertical-align: middle;
+    color: #a9836b; }
+  .products__table .qty__span {
+    position: relative; }
+    .products__table .qty__span::before {
+      content: '\f077';
+      font-family: "Font Awesome 5 Pro";
+      font-weight: 900;
+      font-size: 13px;
+      position: absolute;
+      top: -17px;
+      right: -24px;
+      cursor: pointer; }
+    .products__table .qty__span::after {
+      content: '\f078';
+      font-family: "Font Awesome 5 Pro";
+      font-weight: 900;
+      font-size: 13px;
+      position: absolute;
+      top: -2px;
+      right: -24px;
+      cursor: pointer; }
+  .products__table .add {
+    width: 213px;
+    vertical-align: middle; }
+
+.addBtn:link,
+.addBtn:visited {
+  font-family: "Lato", sans-serif;
+  font-size: 16px;
+  letter-spacing: 7px;
+  background-color: #304061;
+  padding: 15px 51px 15px 26px;
+  color: #fff;
+  position: relative;
+  text-decoration: none; }
+  .addBtn:link::after,
+  .addBtn:visited::after {
+    content: "\f07a";
+    height: 15px;
+    width: 15px;
+    color: #fff;
+    position: absolute;
+    top: 7px;
+    right: 29px;
+    font-family: "Font Awesome 5 Pro";
+    font-weight: 900; }

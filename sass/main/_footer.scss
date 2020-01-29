@@ -1,0 +1,87 @@
+.footer {
+    background-color: $color-primary;
+    margin-top: 260px;
+}
+.footer__wrap {
+    display: flex;
+    justify-content: space-between;
+}
+.footer__left {
+    text-align: center;
+    flex: 2;
+}
+.footer__list {
+    list-style: none;
+}
+.footer__item {
+    padding: 10px;
+}
+.footer__link {
+    &:link,
+    &:visited {
+        text-decoration: none;
+        color: $text-blue;
+        font-size: 18px;
+        font-family: $lato;
+    }
+}
+.gold {
+    &:link,
+    &:visited {
+        color: $text-brown;
+    }
+}
+.footer__center {
+    flex: 1;
+}
+.footer__right {
+    flex: 2;
+
+}
+.footer__email {
+    display: block;
+    width: 50%;
+    &:link,
+    &:visited {
+        outline: none;
+        text-transform: uppercase;
+        padding: 20px 100px;
+        background-color: transparent;
+        border: .5px solid $text-brown;
+        letter-spacing: 1.5px;
+        color: $text-blue;
+        font-size: 16px;
+        position: relative;
+    }
+    &::before {
+        content: '\f0e0';
+        font-family: $icons;
+        font-weight: 900;
+        font-size: 18px;
+        position: absolute;
+        top: 50%;
+        left: 19px;
+        transform: translateY(-50%);
+        cursor: pointer;
+    }
+
+    &::after {
+        content: '\f061';
+        font-family: $icons;
+        font-weight: 900;
+        font-size: 16px;
+        position: absolute;
+        top: 50%;
+        right: 19px;
+        transform: translateY(-50%);
+        cursor: pointer;
+        color: $text-brown;
+    }
+}
+.footer__heading {
+    font-size: 28px;
+    font-family: $myriad;
+    text-transform: uppercase;
+    line-height: 36px;
+    letter-spacing: 12px;
+}
