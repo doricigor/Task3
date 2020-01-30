@@ -1,152 +1,178 @@
 .products {
     margin-top: 33px;
 }
-.products__table {
-    font-size: 14px;
+// Headings of products
+.products__headings {
+    margin-top: 50px;
+}
+.products__list {
+    list-style: none;
+    display: flex;
+}
+.products__item {
+    color: $color-blue-light;
+    font-weight: 400;
+    font-size: 16px;
     font-family: $lato;
-    line-height: 36px;
+}
+.products__item--img {
+    margin-left: 48px;
+}
+.products__item--brand {
+    margin-left: 47px;
+}
+.products__item--itemNo {
+    margin-left: 267px;
+}
+.products__item--listing {
+    margin-left: 185px;
+}
+.products__item--wholesale {
+    margin-left: 128px;
+}
+.products__item--qty {
+    margin-left: 124px;
+}
 
-    thead {
-        border-bottom: 1px solid $text-brown;
+// Products
+
+.product {
+    padding-top: 17px;
+    display: flex;
+    height: auto;
+}
+.product__star {
+    padding: 19px 20px 19px 40px;
+    min-width: 86px;
+    cursor: pointer;
+    color: $text-brown;
+}
+.product__img {
+    padding: 0 5px;
+    width: 70px;
+    img {
+        width: 69%;
     }
-    th {
-        border-top: 0;
-        color: $color-blue-light;
-        font-weight: 400;
-        font-size: 16px;
-        font-family: $lato;
-    }
+}
+.product__brand {
+    padding: 3px 28px;
+    color: $text-blue;
+    font-size: 18px;
+    font-weight: bold;
+    line-height: 27px;
+    letter-spacing: 1.5px;
+    min-width: 240px;
     
-    .products__stars {
-        width: 76px;
-        color: $text-brown;
+}
+.product__subbrand {
+    color: $text-brown;
+    font-size: 14px;
+    font-weight: normal;
+    letter-spacing: 1px;
+    display: block;
+}
+.product__itemNo {
+    padding: 22px 98px;
+    color: $text-blue;
+    min-width: 330px;
+}
+.product__listing {
+    padding: 21px 13px;
+    color: $text-brown;
+    min-width: 131px;
+}
+.product__wholesale {
+    padding: 21px 56px;
+    color: $text-brown;
+    min-width: 217px;
+}
+.product__qty {
+    padding: 21px 34px;
+    color: $text-brown;
+    min-width: 113px;
+}
+.product__qtyNum {
+    position: relative;
+        
+    &::before {
+        content: '\f077';
+        font-family: $icons;
+        font-weight: 900;
         font-size: 13px;
-        vertical-align: middle;
-        padding-left: 37px;
+        position: absolute;
+        top: -7px;
+        right: -22px;
         cursor: pointer;
     }
-    .products__img {
-        width: 90px;
-        vertical-align: middle;
-        padding: 0 15px;
-        img {
-            width: 70%;
-        }
+    &::after {
+        content: '\f078';
+        font-family: $icons;
+        font-weight: 900;
+        font-size: 13px;
+        position: absolute;
+        top: 10px;
+        right: -22px;
+        cursor: pointer;
     }
-    .products__brand {
-        width: 310px;
-        color: $text-blue;
-        font-size: 18px;
-        font-weight: bold;
-        line-height: 27px;
-        letter-spacing: 1.5px;
-        vertical-align: middle;
-        display: flex;
-        flex-direction: column;
-        padding: 17px 18px;
-    }
-    .brand__sub {
-        color: $text-brown;
-        font-size: 14px;
-        font-weight: normal;
-        letter-spacing: 1px;
-    }
-    .products__itemNo {
-        width: 245px;
-        vertical-align: middle;
-        color: $text-blue;
-    }
-    .products__listing {
-        width: 175px;
-        vertical-align: middle;
-        color: $text-brown;
-    }
-    .products__wholesale {
-        width: 190px;
-        vertical-align: middle;
-        color: $text-brown;
-    }
-    .products__qty {
-        width: 110px;
-        vertical-align: middle;
-        color: $text-brown;
-    }
-    .products__qty__span {
-        position: relative;
-        
-        &::before {
-            content: '\f077';
-            font-family: $icons;
-            font-weight: 900;
-            font-size: 13px;
-            position: absolute;
-            top: -17px;
-            right: -24px;
-            cursor: pointer;
-        }
-        &::after {
-            content: '\f078';
-            font-family: $icons;
-            font-weight: 900;
-            font-size: 13px;
-            position: absolute;
-            top: -2px;
-            right: -24px;
-            cursor: pointer;
-        }
-    }
-    .products__add {
-        width: 213px;
-        vertical-align: middle;
-        padding-top: 15px;
-        position: relative;
+}
+.product__add {
+    padding: 21px 31px;
+    min-width: 201px;
 
-        &::after {
-            content: '\f078';
-            font-family: $icons;
-            font-weight: 900;
+    
+}
+.product__arrow {
+    a {
+        
+        &:link,
+        &:visited {
             font-size: 13px;
             position: absolute;
-            top: 29px;
-            right: 26px;
+            top: 23px;
+            right: 0;
             cursor: pointer;
             color: $text-brown;
+            position: relative;
         }
     }
 }
-// Collapsed info of products:
-.accordion-toggle {
+
+.product__hidden {
     transition: all .2s ease;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    height: 55px;
+    padding: 0 9px 0 77px;
+    border-top: .5px solid #dcd3ce;
+    margin-top: 23px;
 }
-.hide-table-padding td {
-    padding: 0;
+.product__hidden--img {
+    padding-left: 21px;
 }
-.products__hide {
+.product__hidden--info {
     font-size: 14px;
     font-family: $lato;
     color: $text-blue-light;
-    transition: .2s ease;
+    margin-left: 62px;
+    flex: 2;
+
+    .color {
+        padding-right: 116px;
+        padding-left: 27px;
+    }
+    .band {
+        
+    }
+    .case {
+        padding-left: 83px;
+    }
+    .features {
+        padding-left: 76px;
+    }
 }
-.products__collapsed {
-    display: flex; 
-}
-.products__subimg {
+.product__hidden--link {
     cursor: pointer;
-}
-.products__color {
-    margin-left: 94px;
-}
-.products__band {
-    margin-left: 116px;
-}
-.products__case {
-    margin-left: 86px;
-}
-.products__features {
-    margin-left: 78px;
-}
-.products__link {
-    margin-left: 170px;
     color: $text-brown;
-    cursor: pointer;
+    font-size: 13px;
 }
