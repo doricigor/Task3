@@ -16,21 +16,24 @@
         font-size: 16px;
         font-family: $lato;
     }
-    .stars {
+    
+    .products__stars {
         width: 76px;
         color: $text-brown;
         font-size: 13px;
         vertical-align: middle;
-        padding-left: 35px;
+        padding-left: 37px;
+        cursor: pointer;
     }
-    .img {
+    .products__img {
         width: 90px;
         vertical-align: middle;
+        padding: 0 15px;
         img {
-            width: 62%;
+            width: 70%;
         }
     }
-    .brand {
+    .products__brand {
         width: 310px;
         color: $text-blue;
         font-size: 18px;
@@ -40,7 +43,7 @@
         vertical-align: middle;
         display: flex;
         flex-direction: column;
-        padding: 17px 14px;
+        padding: 17px 18px;
     }
     .brand__sub {
         color: $text-brown;
@@ -48,27 +51,27 @@
         font-weight: normal;
         letter-spacing: 1px;
     }
-    .itemNo {
+    .products__itemNo {
         width: 245px;
         vertical-align: middle;
         color: $text-blue;
     }
-    .listing {
+    .products__listing {
         width: 175px;
         vertical-align: middle;
         color: $text-brown;
     }
-    .wholesale {
+    .products__wholesale {
         width: 190px;
         vertical-align: middle;
         color: $text-brown;
     }
-    .qty {
+    .products__qty {
         width: 110px;
         vertical-align: middle;
         color: $text-brown;
     }
-    .qty__span {
+    .products__qty__span {
         position: relative;
         
         &::before {
@@ -92,8 +95,58 @@
             cursor: pointer;
         }
     }
-    .add {
+    .products__add {
         width: 213px;
         vertical-align: middle;
+        padding-top: 15px;
+        position: relative;
+
+        &::after {
+            content: '\f078';
+            font-family: $icons;
+            font-weight: 900;
+            font-size: 13px;
+            position: absolute;
+            top: 29px;
+            right: 26px;
+            cursor: pointer;
+            color: $text-brown;
+        }
     }
+}
+// Collapsed info of products:
+.accordion-toggle {
+    transition: all .2s ease;
+}
+.hide-table-padding td {
+    padding: 0;
+}
+.products__hide {
+    font-size: 14px;
+    font-family: $lato;
+    color: $text-blue-light;
+    transition: .2s ease;
+}
+.products__collapsed {
+    display: flex; 
+}
+.products__subimg {
+    cursor: pointer;
+}
+.products__color {
+    margin-left: 94px;
+}
+.products__band {
+    margin-left: 116px;
+}
+.products__case {
+    margin-left: 86px;
+}
+.products__features {
+    margin-left: 78px;
+}
+.products__link {
+    margin-left: 170px;
+    color: $text-brown;
+    cursor: pointer;
 }

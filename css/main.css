@@ -74,65 +74,119 @@ header {
   margin-top: 260px; }
 
 .footer__wrap {
+  margin: 0 auto;
   display: flex;
-  justify-content: space-between; }
+  padding: 112px 150px 105px 150px;
+  position: relative; }
+  .footer__wrap::before {
+    content: '';
+    height: 11px;
+    width: 210px;
+    background-color: #a9836b;
+    position: absolute;
+    top: 0;
+    left: 50.5%;
+    transform: translateX(-50%); }
 
 .footer__left {
   text-align: center;
-  flex: 2; }
+  flex: 1;
+  margin-right: 13px; }
 
 .footer__list {
-  list-style: none; }
+  list-style: none;
+  margin-top: 34px;
+  padding-left: 0;
+  padding-right: 34px;
+  line-height: 26.5px; }
 
 .footer__item {
-  padding: 10px; }
+  padding: 6px; }
 
 .footer__link:link, .footer__link:visited {
   text-decoration: none;
   color: #304061;
   font-size: 18px;
+  letter-spacing: 1.5px;
   font-family: "Lato", sans-serif; }
 
 .gold:link, .gold:visited {
   color: #a9836b; }
 
 .footer__center {
-  flex: 1; }
+  text-align: center;
+  flex: 1;
+  border-left: 1px solid #a9836b;
+  border-right: 1px solid #a9836b; }
+  .footer__center span {
+    margin-left: 18px; }
+  .footer__center a {
+    display: block; }
+
+.footer__info,
+.footer__contact {
+  list-style: none;
+  padding: 0; }
+  .footer__info li,
+  .footer__contact li {
+    padding: 2px; }
+  .footer__info a:link, .footer__info a:visited,
+  .footer__contact a:link,
+  .footer__contact a:visited {
+    text-decoration: none;
+    font-family: "Lato", sans-serif;
+    font-size: 16px;
+    color: #304061; }
+
+.footer__info {
+  margin-top: 61px; }
+
+.footer__contact {
+  margin-bottom: 34px; }
 
 .footer__right {
-  flex: 2; }
+  text-align: center;
+  flex: 1; }
+  .footer__right span {
+    margin-left: 123px; }
 
-.footer__email {
+.footer__emailBtn {
   display: block;
-  width: 50%; }
-  .footer__email:link, .footer__email:visited {
+  width: 390px; }
+  .footer__emailBtn:link, .footer__emailBtn:visited {
     outline: none;
     text-transform: uppercase;
-    padding: 20px 100px;
+    padding: 23px 100px;
     background-color: transparent;
     border: 0.5px solid #a9836b;
     letter-spacing: 1.5px;
     color: #304061;
     font-size: 16px;
-    position: relative; }
-  .footer__email::before {
+    position: relative;
+    margin-left: 117px;
+    margin-top: 114px;
+    text-decoration: none; }
+    .footer__emailBtn:link:hover, .footer__emailBtn:visited:hover {
+      background-color: #ddccb8;
+      border: 0; }
+  .footer__emailBtn::before {
     content: '\f0e0';
     font-family: "Font Awesome 5 Pro";
     font-weight: 900;
     font-size: 18px;
     position: absolute;
     top: 50%;
-    left: 19px;
+    left: 22px;
     transform: translateY(-50%);
     cursor: pointer; }
-  .footer__email::after {
+  .footer__emailBtn::after {
     content: '\f061';
     font-family: "Font Awesome 5 Pro";
     font-weight: 900;
     font-size: 16px;
     position: absolute;
     top: 50%;
-    right: 19px;
+    right: 22px;
     transform: translateY(-50%);
     cursor: pointer;
     color: #a9836b; }
@@ -143,6 +197,15 @@ header {
   text-transform: uppercase;
   line-height: 36px;
   letter-spacing: 12px; }
+
+.copyright {
+  text-align: center;
+  color: #304061;
+  font-size: 16px;
+  margin-left: 23px;
+  padding-bottom: 60px; }
+  .copyright span {
+    font-weight: bold; }
 
 .inputContainer {
   background-image: linear-gradient(0deg, #e6d7c5 5%, #fbfbfb 54%, #efe9c7 100%);
@@ -184,18 +247,20 @@ header {
     font-weight: 400;
     font-size: 16px;
     font-family: "Lato", sans-serif; }
-  .products__table .stars {
+  .products__table .products__stars {
     width: 76px;
     color: #a9836b;
     font-size: 13px;
     vertical-align: middle;
-    padding-left: 35px; }
-  .products__table .img {
+    padding-left: 37px;
+    cursor: pointer; }
+  .products__table .products__img {
     width: 90px;
-    vertical-align: middle; }
-    .products__table .img img {
-      width: 62%; }
-  .products__table .brand {
+    vertical-align: middle;
+    padding: 0 15px; }
+    .products__table .products__img img {
+      width: 70%; }
+  .products__table .products__brand {
     width: 310px;
     color: #304061;
     font-size: 18px;
@@ -205,31 +270,31 @@ header {
     vertical-align: middle;
     display: flex;
     flex-direction: column;
-    padding: 17px 14px; }
+    padding: 17px 18px; }
   .products__table .brand__sub {
     color: #a9836b;
     font-size: 14px;
     font-weight: normal;
     letter-spacing: 1px; }
-  .products__table .itemNo {
+  .products__table .products__itemNo {
     width: 245px;
     vertical-align: middle;
     color: #304061; }
-  .products__table .listing {
+  .products__table .products__listing {
     width: 175px;
     vertical-align: middle;
     color: #a9836b; }
-  .products__table .wholesale {
+  .products__table .products__wholesale {
     width: 190px;
     vertical-align: middle;
     color: #a9836b; }
-  .products__table .qty {
+  .products__table .products__qty {
     width: 110px;
     vertical-align: middle;
     color: #a9836b; }
-  .products__table .qty__span {
+  .products__table .products__qty__span {
     position: relative; }
-    .products__table .qty__span::before {
+    .products__table .products__qty__span::before {
       content: '\f077';
       font-family: "Font Awesome 5 Pro";
       font-weight: 900;
@@ -238,7 +303,7 @@ header {
       top: -17px;
       right: -24px;
       cursor: pointer; }
-    .products__table .qty__span::after {
+    .products__table .products__qty__span::after {
       content: '\f078';
       font-family: "Font Awesome 5 Pro";
       font-weight: 900;
@@ -247,9 +312,56 @@ header {
       top: -2px;
       right: -24px;
       cursor: pointer; }
-  .products__table .add {
+  .products__table .products__add {
     width: 213px;
-    vertical-align: middle; }
+    vertical-align: middle;
+    padding-top: 15px;
+    position: relative; }
+    .products__table .products__add::after {
+      content: '\f078';
+      font-family: "Font Awesome 5 Pro";
+      font-weight: 900;
+      font-size: 13px;
+      position: absolute;
+      top: 29px;
+      right: 26px;
+      cursor: pointer;
+      color: #a9836b; }
+
+.accordion-toggle {
+  transition: all .2s ease; }
+
+.hide-table-padding td {
+  padding: 0; }
+
+.products__hide {
+  font-size: 14px;
+  font-family: "Lato", sans-serif;
+  color: #7583a0;
+  transition: .2s ease; }
+
+.products__collapsed {
+  display: flex; }
+
+.products__subimg {
+  cursor: pointer; }
+
+.products__color {
+  margin-left: 94px; }
+
+.products__band {
+  margin-left: 116px; }
+
+.products__case {
+  margin-left: 86px; }
+
+.products__features {
+  margin-left: 78px; }
+
+.products__link {
+  margin-left: 170px;
+  color: #a9836b;
+  cursor: pointer; }
 
 .addBtn:link,
 .addBtn:visited {
@@ -260,15 +372,71 @@ header {
   padding: 15px 51px 15px 26px;
   color: #fff;
   position: relative;
-  text-decoration: none; }
+  text-decoration: none;
+  text-transform: uppercase; }
+  .addBtn:link:hover,
+  .addBtn:visited:hover {
+    background-color: #536b94; }
   .addBtn:link::after,
   .addBtn:visited::after {
     content: "\f07a";
+    font-size: 16px;
+    color: #fff;
+    position: absolute;
+    top: 7px;
+    right: 22px;
+    font-family: "Font Awesome 5 Pro";
+    font-weight: 900; }
+
+.addedBtn:link,
+.addedBtn:visited {
+  font-family: "Lato", sans-serif;
+  font-size: 16px;
+  letter-spacing: 7px;
+  background-color: #536b94;
+  padding: 15px 28px 15px 19px;
+  color: #fff;
+  position: relative;
+  text-decoration: none;
+  letter-spacing: 6px;
+  text-transform: uppercase; }
+  .addedBtn:link:hover,
+  .addedBtn:visited:hover {
+    background-color: #304061; }
+  .addedBtn:link::after,
+  .addedBtn:visited::after {
+    content: "\f00c";
     height: 15px;
     width: 15px;
     color: #fff;
     position: absolute;
     top: 7px;
-    right: 29px;
+    right: 14px;
+    font-family: "Font Awesome 5 Pro";
+    font-weight: 900; }
+
+.outBtn:link,
+.outBtn:visited {
+  font-family: "Lato", sans-serif;
+  font-size: 11px;
+  letter-spacing: .1px;
+  background-color: #fff;
+  padding: 15px 15px 15px 32px;
+  color: #304061;
+  position: relative;
+  text-decoration: none;
+  text-transform: uppercase; }
+  .outBtn:link:hover,
+  .outBtn:visited:hover {
+    border: 1px solid #a9836b; }
+  .outBtn:link::after,
+  .outBtn:visited::after {
+    content: "\f217";
+    height: 15px;
+    width: 15px;
+    color: #304061;
+    position: absolute;
+    top: 4px;
+    left: 11px;
     font-family: "Font Awesome 5 Pro";
     font-weight: 900; }

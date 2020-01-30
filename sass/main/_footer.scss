@@ -3,18 +3,36 @@
     margin-top: 260px;
 }
 .footer__wrap {
+    margin: 0 auto;
     display: flex;
-    justify-content: space-between;
+    padding: 112px 150px 105px 150px;
+    position: relative;
+
+    &::before {
+        content: '';
+        height: 11px;
+        width: 210px;
+        background-color: $text-brown;
+        position: absolute;
+        top: 0;
+        left: 50.5%;
+        transform: translateX(-50%);
+    }
 }
 .footer__left {
     text-align: center;
-    flex: 2;
+    flex: 1;
+    margin-right: 13px;
 }
 .footer__list {
     list-style: none;
+    margin-top: 34px;
+    padding-left: 0;
+    padding-right: 34px;
+    line-height: 26.5px;
 }
 .footer__item {
-    padding: 10px;
+    padding: 6px;
 }
 .footer__link {
     &:link,
@@ -22,6 +40,7 @@
         text-decoration: none;
         color: $text-blue;
         font-size: 18px;
+        letter-spacing: 1.5px;
         font-family: $lato;
     }
 }
@@ -32,26 +51,70 @@
     }
 }
 .footer__center {
+    text-align: center;
     flex: 1;
+    border-left: 1px solid $text-brown;
+    border-right: 1px solid $text-brown;
+    span {
+        margin-left: 18px;
+    }
+    a {
+        display: block;
+    }
+}
+.footer__info,
+.footer__contact {
+    list-style: none;
+    padding: 0;
+    li {
+        padding: 2px;
+    }
+    a {
+        &:link,
+        &:visited {
+            text-decoration: none;
+            font-family: $lato;
+            font-size: 16px;
+            color: $text-blue;
+        }
+    }
+}
+.footer__info {
+    margin-top: 61px;
+}
+.footer__contact {
+    margin-bottom: 34px;
 }
 .footer__right {
-    flex: 2;
-
+    text-align: center;
+    flex: 1;
+    
+    span {
+        margin-left: 123px;
+    }
 }
-.footer__email {
+.footer__emailBtn {
     display: block;
-    width: 50%;
+    width: 390px;
     &:link,
     &:visited {
         outline: none;
         text-transform: uppercase;
-        padding: 20px 100px;
+        padding: 23px 100px;
         background-color: transparent;
         border: .5px solid $text-brown;
         letter-spacing: 1.5px;
         color: $text-blue;
         font-size: 16px;
         position: relative;
+        margin-left: 117px;
+        margin-top: 114px;
+        text-decoration: none;
+
+        &:hover {
+           background-color: $color-brown-line;
+           border: 0;
+        }
     }
     &::before {
         content: '\f0e0';
@@ -60,7 +123,7 @@
         font-size: 18px;
         position: absolute;
         top: 50%;
-        left: 19px;
+        left: 22px;
         transform: translateY(-50%);
         cursor: pointer;
     }
@@ -72,7 +135,7 @@
         font-size: 16px;
         position: absolute;
         top: 50%;
-        right: 19px;
+        right: 22px;
         transform: translateY(-50%);
         cursor: pointer;
         color: $text-brown;
@@ -84,4 +147,15 @@
     text-transform: uppercase;
     line-height: 36px;
     letter-spacing: 12px;
+}
+.copyright {
+    text-align: center;
+    color: $text-blue;
+    font-size: 16px;
+    margin-left: 23px;
+    padding-bottom: 60px;
+
+    span {
+        font-weight: bold;
+    }
 }
