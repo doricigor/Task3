@@ -2,7 +2,7 @@ html {
   font-size: 16px;
   font-family: "Lato", sans-serif; }
 
-@media only screen and (min-width: 1200px) {
+@media only screen and (min-width: 1400px) {
   .container {
     max-width: 1440px; } }
 
@@ -209,11 +209,11 @@ header {
 
 .inputContainer {
   background-image: linear-gradient(0deg, #e6d7c5 5%, #fbfbfb 54%, #efe9c7 100%);
-  height: 105px;
-  position: relative; }
+  height: 105px; }
 
 .input {
-  padding-top: 31px; }
+  padding-top: 31px;
+  position: relative; }
 
 .input__search {
   color: #a9836b;
@@ -230,7 +230,7 @@ header {
   font-size: 15px;
   position: absolute;
   top: 40px;
-  left: 268px;
+  left: 35px;
   cursor: pointer; }
 
 .products {
@@ -242,6 +242,9 @@ header {
 .products__list {
   list-style: none;
   display: flex; }
+  @media only screen and (max-width: 992px) {
+    .products__list {
+      padding-left: 0; } }
 
 .products__item {
   color: #919cb3;
@@ -251,38 +254,95 @@ header {
 
 .products__item--img {
   margin-left: 48px; }
+  @media only screen and (max-width: 1200px) {
+    .products__item--img {
+      margin-left: 0; } }
+  @media only screen and (max-width: 992px) {
+    .products__item--img {
+      margin-left: 25px; } }
 
 .products__item--brand {
-  margin-left: 47px; }
+  margin-left: 63px; }
 
 .products__item--itemNo {
   margin-left: 267px; }
+  @media only screen and (max-width: 1400px) {
+    .products__item--itemNo {
+      margin-left: 200px; } }
+  @media only screen and (max-width: 1200px) {
+    .products__item--itemNo {
+      margin-left: 149px; } }
+  @media only screen and (max-width: 992px) {
+    .products__item--itemNo {
+      margin-left: 70px; } }
 
 .products__item--listing {
   margin-left: 185px; }
+  @media only screen and (max-width: 1400px) {
+    .products__item--listing {
+      margin-left: 137px; } }
+  @media only screen and (max-width: 1200px) {
+    .products__item--listing {
+      margin-left: 79px; } }
+  @media only screen and (max-width: 992px) {
+    .products__item--listing {
+      margin-left: 40px; } }
 
 .products__item--wholesale {
   margin-left: 128px; }
+  @media only screen and (max-width: 1400px) {
+    .products__item--wholesale {
+      margin-left: 65px; } }
+  @media only screen and (max-width: 1200px) {
+    .products__item--wholesale {
+      margin-left: 53px; } }
+  @media only screen and (max-width: 992px) {
+    .products__item--wholesale {
+      margin-left: 29px; } }
 
 .products__item--qty {
   margin-left: 124px; }
+  @media only screen and (max-width: 1400px) {
+    .products__item--qty {
+      margin-left: 64px; } }
+  @media only screen and (max-width: 1200px) {
+    .products__item--qty {
+      margin-left: 55px; } }
+  @media only screen and (max-width: 992px) {
+    .products__item--qty {
+      margin-left: 18px; } }
+
+.product__wrap {
+  position: relative; }
 
 .product {
   padding-top: 17px;
   display: flex;
-  height: auto; }
+  height: 70px; }
+  @media only screen and (max-width: 1400px) {
+    .product {
+      margin-bottom: 25px; } }
 
 .product__star {
   padding: 19px 20px 19px 40px;
-  min-width: 86px;
+  width: 86px;
   cursor: pointer;
   color: #a9836b; }
+  @media only screen and (max-width: 1400px) {
+    .product__star {
+      padding: 16px 5px 2px 5px; } }
+  @media only screen and (max-width: 1200px) {
+    .product__star {
+      width: 40px; } }
 
 .product__img {
   padding: 0 5px;
   width: 70px; }
   .product__img img {
     width: 69%; }
+    @media only screen and (max-width: 1400px) {
+      .product__img img {
+        width: 100%; } }
 
 .product__brand {
   padding: 3px 28px;
@@ -291,7 +351,13 @@ header {
   font-weight: bold;
   line-height: 27px;
   letter-spacing: 1.5px;
-  min-width: 240px; }
+  width: 240px; }
+  @media only screen and (max-width: 1400px) {
+    .product__brand {
+      padding: 3px 5px 3px 30px; } }
+  @media only screen and (max-width: 992px) {
+    .product__brand {
+      font-size: 15px; } }
 
 .product__subbrand {
   color: #a9836b;
@@ -299,26 +365,64 @@ header {
   font-weight: normal;
   letter-spacing: 1px;
   display: block; }
+  @media only screen and (max-width: 992px) {
+    .product__subbrand {
+      font-size: 12px; } }
 
 .product__itemNo {
   padding: 22px 98px;
   color: #304061;
-  min-width: 330px; }
+  width: 330px; }
+  @media only screen and (max-width: 1400px) {
+    .product__itemNo {
+      padding: 13px 50px;
+      width: 240px; } }
+  @media only screen and (max-width: 1200px) {
+    .product__itemNo {
+      width: 171px;
+      padding: 13px 21px; } }
+  @media only screen and (max-width: 992px) {
+    .product__itemNo {
+      font-size: 13px;
+      padding: 13px 8px; } }
 
 .product__listing {
   padding: 21px 13px;
   color: #a9836b;
-  min-width: 131px; }
+  width: 131px; }
+  @media only screen and (max-width: 1400px) {
+    .product__listing {
+      padding: 13px 13px; } }
+  @media only screen and (max-width: 992px) {
+    .product__listing {
+      font-size: 13px;
+      padding: 13px 8px; } }
 
 .product__wholesale {
   padding: 21px 56px;
   color: #a9836b;
-  min-width: 217px; }
+  width: 217px; }
+  @media only screen and (max-width: 1400px) {
+    .product__wholesale {
+      padding: 13px 13px;
+      width: 140px; } }
+  @media only screen and (max-width: 992px) {
+    .product__wholesale {
+      font-size: 13px;
+      padding: 13px 8px; } }
 
 .product__qty {
   padding: 21px 34px;
   color: #a9836b;
-  min-width: 113px; }
+  width: 113px; }
+  @media only screen and (max-width: 1400px) {
+    .product__qty {
+      padding: 13px 13px;
+      width: 80px; } }
+  @media only screen and (max-width: 992px) {
+    .product__qty {
+      font-size: 13px;
+      padding: 13px 8px; } }
 
 .product__qtyNum {
   position: relative; }
@@ -331,6 +435,11 @@ header {
     top: -7px;
     right: -22px;
     cursor: pointer; }
+    @media only screen and (max-width: 992px) {
+      .product__qtyNum::before {
+        font-size: 9px;
+        top: -2px;
+        right: -14px; } }
   .product__qtyNum::after {
     content: '\f078';
     font-family: "Font Awesome 5 Pro";
@@ -340,19 +449,39 @@ header {
     top: 10px;
     right: -22px;
     cursor: pointer; }
+    @media only screen and (max-width: 992px) {
+      .product__qtyNum::after {
+        font-size: 9px;
+        top: 9px;
+        right: -14px; } }
 
 .product__add {
   padding: 21px 31px;
-  min-width: 201px; }
+  width: 201px; }
+  @media only screen and (max-width: 1400px) {
+    .product__add {
+      padding: 13px 20px;
+      width: 190px; } }
 
-.product__arrow a:link, .product__arrow a:visited {
-  font-size: 13px;
+.product__arrow {
   position: absolute;
-  top: 23px;
-  right: 0;
-  cursor: pointer;
-  color: #a9836b;
-  position: relative; }
+  top: 11px;
+  right: 22px; }
+  @media only screen and (max-width: 1200px) {
+    .product__arrow {
+      top: 6px;
+      right: 13px; } }
+  @media only screen and (max-width: 992px) {
+    .product__arrow {
+      right: 8px; } }
+  .product__arrow a:link, .product__arrow a:visited {
+    font-size: 13px;
+    position: absolute;
+    top: 23px;
+    right: 0;
+    cursor: pointer;
+    color: #a9836b;
+    position: relative; }
 
 .product__hidden {
   transition: all .2s ease;
@@ -397,6 +526,17 @@ header {
   position: relative;
   text-decoration: none;
   text-transform: uppercase; }
+  @media only screen and (max-width: 1400px) {
+    .addBtn:link,
+    .addBtn:visited {
+      font-size: 13px;
+      padding: 15px 35px 15px 25px; } }
+  @media only screen and (max-width: 992px) {
+    .addBtn:link,
+    .addBtn:visited {
+      font-size: 12px;
+      letter-spacing: 0;
+      padding: 15px 35px 15px 15px; } }
   .addBtn:link:hover,
   .addBtn:visited:hover {
     background-color: #536b94; }
@@ -410,6 +550,18 @@ header {
     right: 22px;
     font-family: "Font Awesome 5 Pro";
     font-weight: 900; }
+    @media only screen and (max-width: 1400px) {
+      .addBtn:link::after,
+      .addBtn:visited::after {
+        top: 14px;
+        right: 5px;
+        font-size: 13px; } }
+    @media only screen and (max-width: 992px) {
+      .addBtn:link::after,
+      .addBtn:visited::after {
+        font-size: 11px;
+        top: 15px;
+        right: 12px; } }
 
 .addedBtn:link,
 .addedBtn:visited {
@@ -423,6 +575,17 @@ header {
   text-decoration: none;
   letter-spacing: 6px;
   text-transform: uppercase; }
+  @media only screen and (max-width: 1400px) {
+    .addedBtn:link,
+    .addedBtn:visited {
+      font-size: 13px;
+      padding: 15px 25px 15px 25px;
+      letter-spacing: 3px; } }
+  @media only screen and (max-width: 992px) {
+    .addedBtn:link,
+    .addedBtn:visited {
+      padding: 15px 22px 15px 10px;
+      letter-spacing: 0; } }
   .addedBtn:link:hover,
   .addedBtn:visited:hover {
     background-color: #304061; }
@@ -436,6 +599,12 @@ header {
     right: 8px;
     font-family: "Font Awesome 5 Pro";
     font-weight: 900; }
+    @media only screen and (max-width: 1400px) {
+      .addedBtn:link::after,
+      .addedBtn:visited::after {
+        top: 15px;
+        right: 6px;
+        font-size: 11px; } }
 
 .outBtn:link,
 .outBtn:visited {
@@ -448,6 +617,16 @@ header {
   position: relative;
   text-decoration: none;
   text-transform: uppercase; }
+  @media only screen and (max-width: 1400px) {
+    .outBtn:link,
+    .outBtn:visited {
+      font-size: 11px;
+      padding: 15px 7px 15px 25px; } }
+  @media only screen and (max-width: 992px) {
+    .outBtn:link,
+    .outBtn:visited {
+      padding: 18px 7px 15px 9px;
+      font-size: 9px; } }
   .outBtn:link:hover,
   .outBtn:visited:hover {
     border: 1px solid #a9836b; }
@@ -462,3 +641,13 @@ header {
     left: 11px;
     font-family: "Font Awesome 5 Pro";
     font-weight: 900; }
+    @media only screen and (max-width: 1400px) {
+      .outBtn:link::after,
+      .outBtn:visited::after {
+        top: 14px;
+        right: 5px; } }
+    @media only screen and (max-width: 992px) {
+      .outBtn:link::after,
+      .outBtn:visited::after {
+        top: 7px;
+        right: 32px; } }
