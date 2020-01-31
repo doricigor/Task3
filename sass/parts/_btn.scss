@@ -21,6 +21,16 @@
         padding: 15px 35px 15px 15px;
     }
 
+    @include responsive(sm) {
+        font-size: 15px;
+        padding: 15px 80px;
+    }
+
+    @include responsive(xs) {
+        padding: 15px 50px;
+        font-size: 14px;
+    }
+
     &:hover {
         background-color: $color-blue-light-2;
     }
@@ -45,6 +55,11 @@
             font-size: 11px;
             top: 15px;
             right: 12px;
+        }
+
+        @include responsive(sm) {
+            top: 17px;
+            right: 25px;
         }
     }
 }
@@ -72,6 +87,13 @@
         padding: 15px 22px 15px 10px;
         letter-spacing: 0;
     }
+    @include responsive(sm) {
+        padding: 15px 75px;
+    }
+    @include responsive(xs) {
+        padding: 15px 45px;
+        font-size: 14px;
+    }
 
     &:hover {
         background-color: $text-blue;
@@ -91,6 +113,9 @@
             top: 15px;
             right: 6px;
             font-size: 11px;
+        }
+        @include responsive(sm) {
+            right: 24px;
         }
     }
 }
@@ -115,6 +140,13 @@
         padding: 18px 7px 15px 9px;
         font-size: 9px;
     }
+    @include responsive(sm) {
+        padding: 15px 75px;
+        font-size: 12px;
+    }
+    @include responsive(xs) {
+        padding: 15px 50px;
+    }
     
     &:hover {
         border: 1px solid $text-brown;
@@ -138,7 +170,15 @@
 
         @include responsive(md) {
             top: 7px;
-            right: 32px;
+            left: 34px;
+        }
+        @include responsive(sm) {
+            left: 49px;
+            right: 0;
+            top: 13px;
+        }
+        @include responsive(sm) {
+            left: 28px;
         }
     }
 }

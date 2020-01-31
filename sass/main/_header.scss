@@ -5,21 +5,41 @@ header {
     display: flex;
     justify-content: space-between;
     align-items: stretch;
+
+    @include responsive(xs) {
+        flex-direction: column;
+    }
 }
 .header__left {
     margin-right: 30px;
     padding: 2px 22px 0 0;
+
+    @include responsive(xs) {
+        margin: 0 auto;
+    }
 }
 .header__center {
     flex: 2;
     width: 100%;
     border-left: 1px solid $color-brown-line;
     border-right: 1px solid $color-brown-line;
+
+    @include responsive(xs) {
+        display: none;   
+    }
 }
 .header__right {
     display: flex;
     padding: 30px 24px 20px 29px;
     border-right: 1px solid $color-brown-line;
+
+    @include responsive(md) {
+        border-right: none;
+    }
+
+    @include responsive(xs) {
+        margin: 0 auto;   
+    }
 }
 .header__corp {
     position: relative;
@@ -55,6 +75,7 @@ header {
     font-weight: 600;
     position: relative;
     font-family: $myriad;
+
     &::before {
         content: 'Total:';
         color: $color-blue-light;
@@ -62,5 +83,9 @@ header {
         position: absolute;
         top: -15px;
         left: 0;
+
+        @include responsive(xs) {
+            left: 30px;
+        }
     }
 }

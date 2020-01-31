@@ -1,12 +1,21 @@
 .footer {
     background-color: $color-primary;
-    margin-top: 260px;
+    margin-top: 205px;
+
+    @include responsive(md) {
+        margin-top: 130px;
+    }
 }
 .footer__wrap {
     margin: 0 auto;
-    display: flex;
-    padding: 112px 150px 105px 150px;
     position: relative;
+    padding-top: 113px;
+    max-width: 1570px;
+    padding-left: 60px;
+
+    @include responsive(md) {
+        padding-top: 60px;
+    }
 
     &::before {
         content: '';
@@ -20,19 +29,32 @@
     }
 }
 .footer__left {
+    padding-right: 106px;
     text-align: center;
-    flex: 1;
-    margin-right: 13px;
+   
+    @include responsive(md) {
+        padding-right: 0;
+        padding-right: 0;
+    }
 }
 .footer__list {
     list-style: none;
     margin-top: 34px;
     padding-left: 0;
     padding-right: 34px;
-    line-height: 26.5px;
+    text-align: center;
+
+    @include responsive(md) {
+        padding-right: 0;
+    }
 }
 .footer__item {
     padding: 6px;
+    line-height: 27px;
+}
+.up {
+    text-transform: uppercase;
+    letter-spacing: 3px;
 }
 .footer__link {
     &:link,
@@ -40,8 +62,12 @@
         text-decoration: none;
         color: $text-blue;
         font-size: 18px;
-        letter-spacing: 1.5px;
+        letter-spacing: 1px;
         font-family: $lato;
+
+        @include responsive(xs) {
+            font-size: 15px;
+        }
     }
 }
 .gold {
@@ -52,20 +78,57 @@
 }
 .footer__center {
     text-align: center;
-    flex: 1;
-    border-left: 1px solid $text-brown;
-    border-right: 1px solid $text-brown;
+    position: relative;
+
+    @include responsive(md) {
+        margin-top: 40px;
+        padding-left: 0;
+        padding-right: 0;
+    }
+
     span {
-        margin-left: 18px;
+        
+        @include responsive(md) {
+            margin-left: 0;
+        }
     }
     a {
         display: block;
+    }
+
+    &::before {
+        content: '';
+        position: absolute;
+        height: 95%;
+        width: 1px;
+        left: -18px;
+        bottom: 5px;
+        background-color: $text-brown;
+
+        @include responsive(md) {
+            display: none;
+        }
+    }
+
+    &::after {
+        content: '';
+        position: absolute;
+        height: 95%;
+        width: 1px;
+        right: -7px;
+        bottom: 5px;
+        background-color: $text-brown;
+
+        @include responsive(md) {
+            display: none;
+        }
     }
 }
 .footer__info,
 .footer__contact {
     list-style: none;
     padding: 0;
+    margin-top: 34px;
     li {
         padding: 2px;
     }
@@ -81,35 +144,59 @@
 }
 .footer__info {
     margin-top: 61px;
+
+    @include responsive(md) {
+        margin-top: 38px;
+    }
 }
 .footer__contact {
     margin-bottom: 34px;
 }
 .footer__right {
-    text-align: center;
-    flex: 1;
-    
-    span {
-        margin-left: 123px;
+    text-align: right;
+    position: relative;
+
+    @include responsive(md) {
+        padding-right: 0;
+        padding-right: 0;
+        margin-top: 17px;
+    }
+}
+.newsletter {
+
+    @include responsive(md) {
+        position: relative;
+        left: auto;
     }
 }
 .footer__emailBtn {
     display: block;
     width: 390px;
+    position: absolute;
     &:link,
     &:visited {
         outline: none;
         text-transform: uppercase;
-        padding: 23px 100px;
         background-color: transparent;
         border: .5px solid $text-brown;
         letter-spacing: 1.5px;
         color: $text-blue;
-        font-size: 16px;
-        position: relative;
-        margin-left: 117px;
-        margin-top: 114px;
+        font-size: 14px;
         text-decoration: none;
+        top: 53%;
+        right: 0;
+        transform: translateY(-50%);
+        width: 77%;
+        height: 71px;
+        padding-top: 24px;
+        text-align: center;
+
+        @include responsive(md) {
+            top: auto;
+            left: auto;
+            width: 50%;
+            margin: 40px auto;
+        }
 
         &:hover {
            background-color: $color-brown-line;
@@ -126,6 +213,10 @@
         left: 22px;
         transform: translateY(-50%);
         cursor: pointer;
+
+        @include responsive(xs) {
+            display: none;
+        }
     }
 
     &::after {
@@ -139,6 +230,10 @@
         transform: translateY(-50%);
         cursor: pointer;
         color: $text-brown;
+
+        @include responsive(xs) {
+            display: none;
+        }
     }
 }
 .footer__heading {
@@ -147,15 +242,26 @@
     text-transform: uppercase;
     line-height: 36px;
     letter-spacing: 12px;
+
+    @include responsive(xs) {
+        font-size: 20px;
+        letter-spacing: 3px;
+    }
 }
 .copyright {
+    margin-top: 105px;
     text-align: center;
     color: $text-blue;
     font-size: 16px;
-    margin-left: 23px;
+    margin-left: 31px;
     padding-bottom: 60px;
 
     span {
         font-weight: bold;
+    }
+
+    @include responsive(md) {
+        margin-top: 45px;
+        margin-left: 0;
     }
 }
