@@ -107,9 +107,7 @@
     @include responsive(sm) {
         flex-direction: column;
         margin-top: 50px;
-        min-width: 300px;
     }
-
 }
 
 .product {
@@ -405,9 +403,10 @@
     border-top: .5px solid #dcd3ce;
     margin-top: 23px;
     margin-bottom: -20px;
+    padding-right: 22px;
 
     @include responsive(ml) {
-        padding: 15px 13px 0 0;
+        padding: 15px 5px 0 0;
     }
     @include responsive(sm) {
         flex-direction: column;

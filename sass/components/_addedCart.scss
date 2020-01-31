@@ -1,0 +1,122 @@
+.added__cart {
+    display: flex;
+    position: absolute;
+    z-index: 3;
+    top: 89px;
+    left: -340px;
+    flex-direction: column;
+    max-width: 450px;
+    min-height: 150px;
+    border: 1px solid $text-brown;
+    background-color: $color-white;
+
+    @include responsive(sm) {
+        left: -216px;
+    }
+
+    @include responsive(sm) {
+        left: -50%;
+        transform: translateX(-50%);
+        width: 450px;
+    }
+
+    @include responsive(xs) {
+        transform: translateX(0);
+        width: 365px;
+    }
+    @include responsive(ss) {
+        min-height: auto;
+        left: -20px;
+        width: 250px;
+    }
+
+    &::before {
+        content: '';
+        clip-path: polygon(50% 52%, 0% 100%, 100% 100%);
+        background-color: $color-white;
+        position: absolute;
+        top: -47px;
+        right: 16px;
+        height: 50px;
+        width: 50px;
+
+        @include responsive(xs) {
+            display: none;
+        }
+    }
+}
+
+.close {
+    
+        color: $text-brown;
+        position: absolute;
+        top: 7px;
+        right: 11px;
+        font-size: 16px;
+        cursor: pointer;
+
+        @include responsive(ss) {
+            top: 1px;
+            right: 5px;
+        }
+}
+
+.added__item {
+    display: flex;
+    padding: 30px;
+
+    @include responsive(ss) {
+        padding: 15px 12px;
+        flex-direction: column;
+        text-align: center;
+    }
+
+    .product__img {
+        width: 45px;
+
+        img {
+            width: auto;
+        }
+    }
+
+    .product__brand {
+        width: auto;
+        color: $text-blue;
+        font-size: 18px;
+        padding: 0 23px 0 28px;
+        @include responsive(ss) {
+            font-size: 15px;
+        }
+    }
+    .product_subbrand {
+        letter-spacing: .5px;
+        font-size: 16px;
+
+        @include responsive(ss) {
+            font-size: 9px;
+        }
+    }
+
+    .product__itemNo {
+        padding: 0;
+        width: auto;
+        font-size: 14px;
+        color: $text-blue;
+        @include responsive(ss) {
+            font-size: 11px;
+        }
+    }
+}
+.added__msg {
+    font-size: 14px;
+    font-family: $lato;
+    color: $text-blue-light;
+    border-top: 1px solid $text-brown;
+    padding: 10px 84px;
+
+    @include responsive(ss) {
+        font-size: 10px;
+        text-align: center;
+        padding: 4px 4px;
+    }
+}

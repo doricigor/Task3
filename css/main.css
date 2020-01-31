@@ -6,6 +6,18 @@ html {
   .container {
     max-width: 1440px; } }
 
+@font-face {
+  font-family: 'Butler';
+  src: url("Butler.woff2") format("woff2"), url("Butler.woff") format("woff");
+  font-weight: normal;
+  font-style: normal; }
+
+.d-show {
+  display: block; }
+
+.d-hide {
+  display: none; }
+
 header {
   border-top: 0.5px solid #ddccb8; }
 
@@ -22,7 +34,8 @@ header {
   padding: 2px 22px 0 0; }
   @media only screen and (max-width: 576px) {
     .header__left {
-      margin: 0 auto; } }
+      margin: 0 auto;
+      padding: 0; } }
 
 .header__center {
   flex: 2;
@@ -36,7 +49,8 @@ header {
 .header__right {
   display: flex;
   padding: 30px 24px 20px 29px;
-  border-right: 1px solid #ddccb8; }
+  border-right: 1px solid #ddccb8;
+  position: relative; }
   @media only screen and (max-width: 992px) {
     .header__right {
       border-right: none; } }
@@ -93,16 +107,20 @@ header {
   @media only screen and (max-width: 992px) {
     .footer {
       margin-top: 130px; } }
+  @media only screen and (max-width: 576px) {
+    .footer {
+      margin-top: 75px; } }
 
 .footer__wrap {
   margin: 0 auto;
   position: relative;
-  padding-top: 113px;
+  padding-top: 115px;
   max-width: 1570px;
   padding-left: 60px; }
   @media only screen and (max-width: 992px) {
     .footer__wrap {
-      padding-top: 60px; } }
+      padding-top: 60px;
+      padding-left: 0; } }
   .footer__wrap::before {
     content: '';
     height: 11px;
@@ -160,9 +178,11 @@ header {
       margin-top: 40px;
       padding-left: 0;
       padding-right: 0; } }
-  @media only screen and (max-width: 992px) {
-    .footer__center span {
-      margin-left: 0; } }
+  .footer__center span {
+    margin-left: -4px; }
+    @media only screen and (max-width: 992px) {
+      .footer__center span {
+        margin-left: 0; } }
   .footer__center a {
     display: block; }
   .footer__center::before {
@@ -220,76 +240,82 @@ header {
     .footer__right {
       padding-right: 0;
       padding-right: 0;
-      margin-top: 17px; } }
+      margin-top: 17px;
+      text-align: center; } }
 
 @media only screen and (max-width: 992px) {
   .newsletter {
     position: relative;
     left: auto; } }
 
-.footer__emailBtn {
-  display: block;
-  width: 390px;
-  position: absolute; }
-  .footer__emailBtn:link, .footer__emailBtn:visited {
-    outline: none;
-    text-transform: uppercase;
-    background-color: transparent;
-    border: 0.5px solid #a9836b;
-    letter-spacing: 1.5px;
-    color: #304061;
-    font-size: 14px;
-    text-decoration: none;
-    top: 53%;
-    right: 0;
-    transform: translateY(-50%);
-    width: 77%;
-    height: 71px;
-    padding-top: 24px;
-    text-align: center; }
-    @media only screen and (max-width: 992px) {
-      .footer__emailBtn:link, .footer__emailBtn:visited {
-        top: auto;
-        left: auto;
-        width: 50%;
-        margin: 40px auto; } }
-    .footer__emailBtn:link:hover, .footer__emailBtn:visited:hover {
-      background-color: #ddccb8;
-      border: 0; }
-  .footer__emailBtn::before {
-    content: '\f0e0';
-    font-family: "Font Awesome 5 Pro";
-    font-weight: 900;
-    font-size: 18px;
-    position: absolute;
-    top: 50%;
-    left: 22px;
-    transform: translateY(-50%);
-    cursor: pointer; }
-    @media only screen and (max-width: 576px) {
-      .footer__emailBtn::before {
-        display: none; } }
-  .footer__emailBtn::after {
-    content: '\f061';
-    font-family: "Font Awesome 5 Pro";
-    font-weight: 900;
-    font-size: 16px;
-    position: absolute;
-    top: 50%;
-    right: 22px;
-    transform: translateY(-50%);
-    cursor: pointer;
-    color: #a9836b; }
-    @media only screen and (max-width: 576px) {
-      .footer__emailBtn::after {
-        display: none; } }
+.footer__emailBtn:link, .footer__emailBtn:visited {
+  display: inline-block;
+  max-width: 390px;
+  width: 100%;
+  position: relative;
+  outline: none;
+  text-transform: uppercase;
+  background-color: transparent;
+  border: 0.5px solid #a9836b;
+  letter-spacing: 1.5px;
+  color: #304061;
+  font-size: 14px;
+  text-decoration: none;
+  height: 71px;
+  margin-top: 117px;
+  padding-top: 24px;
+  text-align: center; }
+  @media only screen and (max-width: 992px) {
+    .footer__emailBtn:link, .footer__emailBtn:visited {
+      top: auto;
+      left: auto;
+      width: 50%;
+      margin: 40px auto;
+      display: block; } }
+  @media only screen and (max-width: 576px) {
+    .footer__emailBtn:link, .footer__emailBtn:visited {
+      height: 52px;
+      padding-top: 15px; } }
+  .footer__emailBtn:link:hover, .footer__emailBtn:visited:hover {
+    background-color: #ddccb8;
+    border: 0; }
+
+.footer__emailBtn::before {
+  content: '\f0e0';
+  font-family: "Font Awesome 5 Pro";
+  font-weight: 900;
+  font-size: 18px;
+  position: absolute;
+  top: 50%;
+  left: 22px;
+  transform: translateY(-50%);
+  cursor: pointer; }
+  @media only screen and (max-width: 576px) {
+    .footer__emailBtn::before {
+      display: none; } }
+
+.footer__emailBtn::after {
+  content: '\f061';
+  font-family: "Font Awesome 5 Pro";
+  font-weight: 900;
+  font-size: 16px;
+  position: absolute;
+  top: 50%;
+  right: 22px;
+  transform: translateY(-50%);
+  cursor: pointer;
+  color: #a9836b; }
+  @media only screen and (max-width: 576px) {
+    .footer__emailBtn::after {
+      display: none; } }
 
 .footer__heading {
   font-size: 28px;
   font-family: "Myriad Pro", "Myriad", "Liberation Sans", "Nimbus Sans L", "Helvetica Neue", Helvetica, Arial, sans-serif;
   text-transform: uppercase;
   line-height: 36px;
-  letter-spacing: 12px; }
+  letter-spacing: 12px;
+  font-family: 'Butler'; }
   @media only screen and (max-width: 576px) {
     .footer__heading {
       font-size: 20px;
@@ -308,6 +334,11 @@ header {
     .copyright {
       margin-top: 45px;
       margin-left: 0; } }
+  @media only screen and (max-width: 576px) {
+    .copyright {
+      margin-top: 0;
+      font-size: 13px;
+      padding-bottom: 20px; } }
 
 .inputContainer {
   background-image: linear-gradient(0deg, #e6d7c5 5%, #fbfbfb 54%, #efe9c7 100%);
@@ -423,8 +454,7 @@ header {
   @media only screen and (max-width: 768px) {
     .product__wrap {
       flex-direction: column;
-      margin-top: 50px;
-      min-width: 300px; } }
+      margin-top: 50px; } }
 
 .product {
   padding-top: 17px;
@@ -672,10 +702,11 @@ header {
   padding: 15px 9px 0 77px;
   border-top: .5px solid #dcd3ce;
   margin-top: 23px;
-  margin-bottom: -20px; }
+  margin-bottom: -20px;
+  padding-right: 22px; }
   @media only screen and (max-width: 1200px) {
     .product__hidden {
-      padding: 15px 13px 0 0; } }
+      padding: 15px 5px 0 0; } }
   @media only screen and (max-width: 768px) {
     .product__hidden {
       flex-direction: column;
@@ -736,6 +767,225 @@ header {
   @media only screen and (max-width: 992px) {
     .product__hidden--link {
       margin-top: 5px; } }
+
+.added__cart {
+  display: flex;
+  position: absolute;
+  z-index: 3;
+  top: 89px;
+  left: -340px;
+  flex-direction: column;
+  max-width: 450px;
+  min-height: 150px;
+  border: 1px solid #a9836b;
+  background-color: #fff; }
+  @media only screen and (max-width: 768px) {
+    .added__cart {
+      left: -216px; } }
+  @media only screen and (max-width: 768px) {
+    .added__cart {
+      left: -50%;
+      transform: translateX(-50%);
+      width: 450px; } }
+  @media only screen and (max-width: 576px) {
+    .added__cart {
+      transform: translateX(0);
+      width: 365px; } }
+  @media only screen and (max-width: 450px) {
+    .added__cart {
+      min-height: auto;
+      left: -20px;
+      width: 250px; } }
+  .added__cart::before {
+    content: '';
+    clip-path: polygon(50% 52%, 0% 100%, 100% 100%);
+    background-color: #fff;
+    position: absolute;
+    top: -47px;
+    right: 16px;
+    height: 50px;
+    width: 50px; }
+    @media only screen and (max-width: 576px) {
+      .added__cart::before {
+        display: none; } }
+
+.close {
+  color: #a9836b;
+  position: absolute;
+  top: 7px;
+  right: 11px;
+  font-size: 16px;
+  cursor: pointer; }
+  @media only screen and (max-width: 450px) {
+    .close {
+      top: 1px;
+      right: 5px; } }
+
+.added__item {
+  display: flex;
+  padding: 30px; }
+  @media only screen and (max-width: 450px) {
+    .added__item {
+      padding: 15px 12px;
+      flex-direction: column;
+      text-align: center; } }
+  .added__item .product__img {
+    width: 45px; }
+    .added__item .product__img img {
+      width: auto; }
+  .added__item .product__brand {
+    width: auto;
+    color: #304061;
+    font-size: 18px;
+    padding: 0 23px 0 28px; }
+    @media only screen and (max-width: 450px) {
+      .added__item .product__brand {
+        font-size: 15px; } }
+  .added__item .product_subbrand {
+    letter-spacing: .5px;
+    font-size: 16px; }
+    @media only screen and (max-width: 450px) {
+      .added__item .product_subbrand {
+        font-size: 9px; } }
+  .added__item .product__itemNo {
+    padding: 0;
+    width: auto;
+    font-size: 14px;
+    color: #304061; }
+    @media only screen and (max-width: 450px) {
+      .added__item .product__itemNo {
+        font-size: 11px; } }
+
+.added__msg {
+  font-size: 14px;
+  font-family: "Lato", sans-serif;
+  color: #7583a0;
+  border-top: 1px solid #a9836b;
+  padding: 10px 84px; }
+  @media only screen and (max-width: 450px) {
+    .added__msg {
+      font-size: 10px;
+      text-align: center;
+      padding: 4px 4px; } }
+
+.mycart {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  position: absolute;
+  top: 79px;
+  right: -1px;
+  z-index: 2;
+  height: 90vh;
+  border: 1px solid #a9836b;
+  border-top: none;
+  background-color: #fff;
+  width: 400px; }
+  @media only screen and (max-width: 768px) {
+    .mycart {
+      width: 100%; } }
+
+.mycart__top {
+  display: flex;
+  flex-direction: column; }
+
+.mycart__heading {
+  font-size: 20px;
+  font-family: "Lato", sans-serif;
+  color: #304061;
+  padding: 20px 15px;
+  font-weight: bold;
+  border-bottom: 1px solid #a9836b; }
+
+.mycart__list {
+  margin-top: 50px;
+  overflow-y: scroll; }
+
+.mycart__item {
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  padding: 20px 28px 10px 15px; }
+  @media only screen and (max-width: 768px) {
+    .mycart__item {
+      padding: 20px 10px 10px 4px; } }
+  .mycart__item .product__brand {
+    font-family: "Myriad Pro", "Myriad", "Liberation Sans", "Nimbus Sans L", "Helvetica Neue", Helvetica, Arial, sans-serif;
+    padding: 0;
+    font-size: 15px;
+    width: auto; }
+    @media only screen and (max-width: 768px) {
+      .mycart__item .product__brand {
+        font-size: 14px; } }
+  @media only screen and (max-width: 768px) {
+    .mycart__item .product__subbrand {
+      font-size: 12px; } }
+  .mycart__item .product__wholesale {
+    padding: 0;
+    font-size: 12px;
+    width: auto;
+    font-size: 14px; }
+  .mycart__item .product__qty {
+    padding: 0;
+    width: auto; }
+    @media only screen and (max-width: 576px) {
+      .mycart__item .product__qty .product__qtyNum {
+        font-size: 12px; } }
+    @media only screen and (max-width: 576px) {
+      .mycart__item .product__qty .product__qtyNum::before {
+        top: -4px; } }
+    @media only screen and (max-width: 576px) {
+      .mycart__item .product__qty .product__qtyNum::after {
+        top: 5px; } }
+    @media only screen and (max-width: 768px) {
+      .mycart__item .product__qty {
+        position: relative;
+        left: 0;
+        bottom: 0; } }
+
+.mycart__close {
+  font-size: 20px;
+  color: #a9836b;
+  cursor: pointer; }
+  @media only screen and (max-width: 768px) {
+    .mycart__close {
+      font-size: 15px; } }
+
+.mycart__down {
+  display: flex;
+  justify-content: space-around;
+  border-top: 1px solid #a9836b;
+  padding: 30px 10px; }
+
+.total {
+  font-size: 18px;
+  font-family: "Lato", sans-serif;
+  color: #304061;
+  font-weight: bold;
+  position: relative;
+  top: 8px; }
+  .total::before {
+    content: 'Total:';
+    color: #919cb3;
+    font-size: 15px;
+    position: absolute;
+    top: -20px;
+    left: 0; }
+
+.checkout a:link, .checkout a:visited {
+  font-size: 16px;
+  font-family: "Lato", sans-serif;
+  color: #fff;
+  background-color: #304061;
+  padding: 15px 50px;
+  text-transform: uppercase;
+  text-decoration: none; }
+  @media only screen and (max-width: 450px) {
+    .checkout a:link, .checkout a:visited {
+      padding: 15px 30px; } }
+
+.checkout a:hover {
+  background-color: #7583a0; }
 
 .addBtn:link,
 .addBtn:visited {

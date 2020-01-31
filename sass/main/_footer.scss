@@ -5,16 +5,20 @@
     @include responsive(md) {
         margin-top: 130px;
     }
+    @include responsive(xs) {
+        margin-top: 75px;
+    }
 }
 .footer__wrap {
     margin: 0 auto;
     position: relative;
-    padding-top: 113px;
+    padding-top: 115px;
     max-width: 1570px;
     padding-left: 60px;
 
     @include responsive(md) {
         padding-top: 60px;
+        padding-left: 0;
     }
 
     &::before {
@@ -87,7 +91,7 @@
     }
 
     span {
-        
+        margin-left: -4px;
         @include responsive(md) {
             margin-left: 0;
         }
@@ -160,21 +164,23 @@
         padding-right: 0;
         padding-right: 0;
         margin-top: 17px;
+        text-align: center;
     }
 }
 .newsletter {
-
     @include responsive(md) {
         position: relative;
         left: auto;
     }
 }
 .footer__emailBtn {
-    display: block;
-    width: 390px;
-    position: absolute;
+    
     &:link,
     &:visited {
+        display: inline-block;
+        max-width: 390px;
+        width: 100%;
+        position: relative;
         outline: none;
         text-transform: uppercase;
         background-color: transparent;
@@ -183,11 +189,8 @@
         color: $text-blue;
         font-size: 14px;
         text-decoration: none;
-        top: 53%;
-        right: 0;
-        transform: translateY(-50%);
-        width: 77%;
         height: 71px;
+        margin-top: 117px;
         padding-top: 24px;
         text-align: center;
 
@@ -196,6 +199,11 @@
             left: auto;
             width: 50%;
             margin: 40px auto;
+            display: block;
+        }
+        @include responsive(xs) {
+            height: 52px;
+            padding-top: 15px;
         }
 
         &:hover {
@@ -242,6 +250,7 @@
     text-transform: uppercase;
     line-height: 36px;
     letter-spacing: 12px;
+    font-family: 'Butler';
 
     @include responsive(xs) {
         font-size: 20px;
@@ -263,5 +272,10 @@
     @include responsive(md) {
         margin-top: 45px;
         margin-left: 0;
+    }
+    @include responsive(xs) {
+        margin-top: 0;
+        font-size: 13px;
+        padding-bottom: 20px;
     }
 }

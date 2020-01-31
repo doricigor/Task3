@@ -1,0 +1,151 @@
+.mycart {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    position: absolute;
+    top: 79px;
+    right: -1px;
+    z-index: 2;
+    height: 90vh;
+    border: 1px solid $text-brown;
+    border-top: none;
+    background-color: $color-white;
+    width: 400px;
+
+    @include responsive(sm) {
+        width: 100%;
+    }
+}
+.mycart__top {
+    display: flex;
+    flex-direction: column;
+}
+.mycart__heading {
+    font-size: 20px;
+    font-family: $lato;
+    color: $text-blue;
+    padding: 20px 15px;
+    font-weight: bold;
+    border-bottom: 1px solid $text-brown;
+}
+.mycart__list {
+    margin-top: 50px;
+    overflow-y: scroll;
+}
+.mycart__item {
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    padding: 20px 28px 10px 15px;
+
+    @include responsive(sm) {
+        padding: 20px 10px 10px 4px;
+    }
+
+    .product__brand {
+        font-family: $myriad;
+        padding: 0;
+        font-size: 15px;
+        width: auto;
+
+        @include responsive(sm) {
+            font-size: 14px;
+        }
+    }
+    .product__subbrand {
+        @include responsive(sm) {
+            font-size: 12px;
+        }
+    }
+    .product__wholesale {
+        padding: 0;
+        font-size: 12px;
+        width: auto;
+        font-size: 14px;
+    }
+    .product__qty {
+        padding: 0;
+        width: auto;
+
+        .product__qtyNum {
+            @include responsive(xs) {
+                font-size: 12px;
+            }
+
+            &::before {
+                @include responsive(xs) {
+                    top: -4px;
+                }
+            }
+            &::after {
+                @include responsive(xs) {
+                    top: 5px;
+                }
+            }
+        }
+
+        @include responsive(sm) {
+            position: relative;
+            left: 0;
+            bottom: 0;
+        }
+        
+    }
+}
+.mycart__close {
+    font-size: 20px;
+    color: $text-brown;
+    cursor: pointer;
+
+    @include responsive(sm) {
+        font-size: 15px;
+    }
+}
+
+.mycart__down {
+    display: flex;
+    justify-content: space-around;
+    border-top: 1px solid $text-brown;
+    padding: 30px 10px;
+}
+.total {
+    font-size: 18px;
+    font-family: $lato;
+    color: $text-blue;
+    font-weight: bold;
+    position: relative;
+    top: 8px;
+
+    &::before {
+        content: 'Total:';
+        color: $color-blue-light;
+        font-size: 15px;
+        position: absolute;
+        top: -20px;
+        left: 0;
+    }
+}
+.checkout {
+
+    a {
+        &:link,
+        &:visited {
+            font-size: 16px;
+            font-family: $lato;
+            color: $color-white;
+            background-color: $text-blue;
+            padding: 15px 50px;
+            text-transform: uppercase;
+            text-decoration: none;
+
+            @include responsive(ss) {
+                padding: 15px 30px;
+            }
+        }
+        &:hover {
+            background-color: $text-blue-light;
+        }
+    }
+    
+    
+}

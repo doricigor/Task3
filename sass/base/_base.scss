@@ -7,5 +7,14 @@ html {
     @media only screen and (min-width: 1400px) {
         max-width: 1440px;
     }
+   
 
+}
+
+@font-face {
+    font-family: 'Butler';
+    src: url('Butler.woff2') format('woff2'),
+         url('Butler.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
 }
