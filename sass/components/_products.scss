@@ -177,7 +177,7 @@
     font-weight: bold;
     line-height: 27px;
     letter-spacing: 1.5px;
-    width: 240px;
+    width: 270px;
 
     @include responsive(lg) {
         padding: 3px 5px 3px 30px;
@@ -209,9 +209,9 @@
     }
 }
 .product__itemNo {
-    padding: 22px 98px;
+    padding: 22px 50px;
     color: $text-blue;
-    width: 330px;
+    width: 300px;
 
     @include responsive(lg) {
         padding: 13px 50px;
@@ -219,11 +219,11 @@
     }
     @include responsive(ml) {
         width: 171px;
-        padding: 13px 21px;
+        padding: 13px 10px;
     }
     @include responsive(md) {
         font-size: 13px;
-        padding: 13px 8px;
+        padding: 13px 2px;
     }
     @include responsive(sm) {
         font-size: 16px;
@@ -271,7 +271,6 @@
 }
 .product__qty {
     padding: 21px 34px;
-    color: $text-brown;
     width: 113px;
 
     @include responsive(lg) {
@@ -286,7 +285,7 @@
 
     @include responsive(sm) {
         position: absolute;
-        bottom: 5px;
+        bottom: -3px;
         left: 70px;
     }
 
@@ -301,53 +300,16 @@
 }
 .product__qtyNum {
     position: relative;
+    color: $text-brown;
+    width: 34px;
+    border: none;
+    cursor: pointer;
+    outline: none;
 
-    @include responsive(xs) {
+    @include responsive(sm) {
         font-size: 20px;
     }
         
-    &::before {
-        content: '\f077';
-        font-family: $icons;
-        font-weight: 900;
-        font-size: 13px;
-        position: absolute;
-        top: -7px;
-        right: -22px;
-        cursor: pointer;
-
-        @include responsive(md) {
-            font-size: 9px;
-            top: -2px;
-            right: -14px;
-        }
-
-        @include responsive(xs) {
-            font-size: 11px;
-            top: 1px;
-        }
-    }
-    &::after {
-        content: '\f078';
-        font-family: $icons;
-        font-weight: 900;
-        font-size: 13px;
-        position: absolute;
-        top: 10px;
-        right: -22px;
-        cursor: pointer;
-
-        @include responsive(md) {
-            font-size: 9px;
-            top: 9px;
-            right: -14px;
-        }
-
-        @include responsive(xs) {
-            font-size: 11px;
-            top: 14px;
-        }
-    }
 }
 .product__add {
     padding: 21px 31px;
@@ -404,6 +366,7 @@
     margin-top: 23px;
     margin-bottom: -20px;
     padding-right: 22px;
+    transition: .2s ease;
 
     @include responsive(ml) {
         padding: 15px 5px 0 0;
