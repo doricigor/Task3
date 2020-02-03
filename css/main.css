@@ -59,18 +59,19 @@ header {
   margin-top: -5px; }
   .header__corp i {
     color: #a9836b; }
-  .header__corp::before {
-    content: '2';
-    height: 18px;
-    width: 18px;
-    color: #fff;
-    font-size: 11px;
-    text-align: center;
-    background-color: #2f4061;
-    border-radius: 50%;
-    position: absolute;
-    top: -7px;
-    left: 13px; }
+
+.header__totalItem {
+  height: 18px;
+  width: 18px;
+  color: #fff;
+  font-size: 11px;
+  text-align: center;
+  background-color: #2f4061;
+  border-radius: 50%;
+  position: absolute;
+  top: 18px;
+  left: 37px;
+  z-index: 1; }
 
 .header__cashContainer {
   display: flex;
@@ -759,15 +760,11 @@ header {
   transform: translateX(200%); }
   @media only screen and (max-width: 768px) {
     .added__cart {
-      left: -216px; } }
-  @media only screen and (max-width: 768px) {
-    .added__cart {
-      left: -50%;
-      transform: translateX(-50%);
+      left: 40%;
       width: 450px; } }
   @media only screen and (max-width: 576px) {
     .added__cart {
-      transform: translateX(0);
+      left: 10%;
       width: 365px; } }
   @media only screen and (max-width: 450px) {
     .added__cart {
@@ -790,6 +787,15 @@ header {
 .added__cart--active {
   transition: .5s ease;
   transform: translateX(0); }
+  @media only screen and (max-width: 768px) {
+    .added__cart--active {
+      transform: translateX(-60%); } }
+  @media only screen and (max-width: 576px) {
+    .added__cart--active {
+      transform: translateX(-50%); } }
+  @media only screen and (max-width: 450px) {
+    .added__cart--active {
+      transform: translateX(0); } }
 
 .close {
   color: #a9836b;
@@ -812,11 +818,12 @@ header {
       flex-direction: column;
       text-align: center; } }
   .added__item .product__img {
-    width: 45px; }
+    width: 70px; }
     .added__item .product__img img {
-      width: auto; }
+      width: 100%; }
   .added__item .product__brand {
     width: auto;
+    min-width: 218px;
     color: #304061;
     font-size: 18px;
     padding: 0 23px 0 28px; }
@@ -904,7 +911,8 @@ header {
     font-family: "Myriad Pro", "Myriad", "Liberation Sans", "Nimbus Sans L", "Helvetica Neue", Helvetica, Arial, sans-serif;
     padding: 0;
     font-size: 15px;
-    width: auto; }
+    width: auto;
+    min-width: 175px; }
     @media only screen and (max-width: 768px) {
       .mycart__item .product__brand {
         font-size: 14px; } }

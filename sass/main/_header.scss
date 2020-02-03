@@ -49,9 +49,9 @@ header {
     i {
         color: $text-brown;
     }
-    &::before {
-        content: '2';
-        height: 18px;
+}
+.header__totalItem {
+    height: 18px;
         width: 18px;
         color: $color-white;
         font-size: 11px;
@@ -59,9 +59,9 @@ header {
         background-color: $color-blue-dark;
         border-radius: 50%;
         position: absolute;
-        top: -7px;
-        left: 13px;
-    }
+        top: 18px;
+        left: 37px;
+        z-index: 1;
 }
 .header__cashContainer {
     display: flex;
