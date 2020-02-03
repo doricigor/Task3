@@ -56,6 +56,8 @@ add.forEach(el => {
     el.addEventListener('click', addItem);
 })
 
+const allProducts = [];
+
 function addItem(e) {
     e.preventDefault();
 
@@ -80,11 +82,10 @@ function addItem(e) {
         listing: $(listing).attr('data-listing'),
         wholesale: $(wholesale).attr('data-wholesale'),
         qty: qty
-    }
+    };
 
-    console.log(product);
 
-    // HTML template
+    // HTML template created in My Cart
     const mycart__list = document.querySelector('.mycart__list');
 
     const html = `
@@ -99,6 +100,16 @@ function addItem(e) {
     `;
 
     mycart__list.insertAdjacentHTML('afterbegin', html);
+
+    // Object/Product go in Array
+    allProducts.push(product);
+    console.log(allProducts);
+
+    // Change button
+    const btn = document.querySelector('.addBtn');
+    btn.classList.remove('addBtn');
+    btn.className = 'addedBtn';
+    btn.innerText = 'ADDED'
 }
 
 // Remove items from cart list 
@@ -107,5 +118,9 @@ function removeItem(e) {
     const itemList = this.children;
     const item = Array.from(itemList);
 
-
+    if (e.target.classList.contains('mycart__close')) {
+        const list = e.target.parentElement.parentElement;
+        const selectedItem = e.target.parentElement;
+        list.removeChild(selectedItem);
+    }
 }
