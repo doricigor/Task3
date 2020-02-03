@@ -1,5 +1,4 @@
 .added__cart {
-    display: none;
     position: absolute;
     z-index: 3;
     top: 89px;
@@ -9,6 +8,8 @@
     min-height: 150px;
     border: 1px solid $text-brown;
     background-color: $color-white;
+    transition: .5s ease;
+    transform: translateX(200%);
 
     @include responsive(sm) {
         left: -216px;
@@ -44,6 +45,10 @@
             display: none;
         }
     }
+}
+.added__cart--active {
+    transition: .5s ease;
+    transform: translateX(0);
 }
 
 .close {
