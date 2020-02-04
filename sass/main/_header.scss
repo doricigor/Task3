@@ -46,22 +46,23 @@ header {
 .header__corp {
     position: relative;
     margin-top: -5px;
+    left: 8px;
     i {
         color: $text-brown;
     }
 }
 .header__totalItem {
     height: 18px;
-        width: 18px;
-        color: $color-white;
-        font-size: 11px;
-        text-align: center;
-        background-color: $color-blue-dark;
-        border-radius: 50%;
-        position: absolute;
-        top: 18px;
-        left: 37px;
-        z-index: 1;
+    width: 18px;
+    color: $color-white;
+    font-size: 11px;
+    text-align: center;
+    background-color: $color-blue-dark;
+    border-radius: 50%;
+    position: absolute;
+    top: 18px;
+    left: 47px;
+    z-index: 1;
 }
 .header__cashContainer {
     display: flex;

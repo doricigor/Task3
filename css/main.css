@@ -56,7 +56,8 @@ header {
 
 .header__corp {
   position: relative;
-  margin-top: -5px; }
+  margin-top: -5px;
+  left: 8px; }
   .header__corp i {
     color: #a9836b; }
 
@@ -70,7 +71,7 @@ header {
   border-radius: 50%;
   position: absolute;
   top: 18px;
-  left: 37px;
+  left: 47px;
   z-index: 1; }
 
 .header__cashContainer {
@@ -100,7 +101,7 @@ header {
 
 .footer {
   background-color: #f5f2ee;
-  margin-top: 205px; }
+  margin-top: 190px; }
   @media only screen and (max-width: 992px) {
     .footer {
       margin-top: 130px; } }
@@ -374,7 +375,9 @@ header {
 
 .products__list {
   list-style: none;
-  display: flex; }
+  display: flex;
+  border-bottom: 1px solid #dbcdc4;
+  padding-bottom: 12px; }
   @media only screen and (max-width: 992px) {
     .products__list {
       padding-left: 0; } }
@@ -447,7 +450,7 @@ header {
 
 .product__wrap {
   position: relative;
-  margin-top: 20px; }
+  margin-top: 18px; }
   @media only screen and (max-width: 768px) {
     .product__wrap {
       flex-direction: column;
@@ -462,7 +465,6 @@ header {
   box-shadow: 0px 0px 18px 1px #a9836b; }
 
 .product {
-  padding-top: 17px;
   display: flex;
   height: 70px;
   position: relative; }
@@ -546,7 +548,7 @@ header {
       font-size: 14px; } }
 
 .product__itemNo {
-  padding: 22px 50px;
+  padding: 22px 65px;
   color: #304061;
   width: 300px; }
   @media only screen and (max-width: 1400px) {
@@ -568,7 +570,7 @@ header {
       width: 100%; } }
 
 .product__listing {
-  padding: 21px 13px;
+  padding: 18px 13px;
   color: #a9836b;
   width: 131px; }
   @media only screen and (max-width: 1400px) {
@@ -583,7 +585,7 @@ header {
       display: none; } }
 
 .product__wholesale {
-  padding: 21px 56px;
+  padding: 18px 56px;
   color: #a9836b;
   width: 217px; }
   @media only screen and (max-width: 1400px) {
@@ -673,11 +675,11 @@ header {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  height: 55px;
+  height: 34px;
   padding: 15px 9px 0 77px;
   border-top: .5px solid #dcd3ce;
-  margin-top: 23px;
-  padding-right: 22px;
+  margin-top: 10px;
+  padding-right: 17px;
   transition: .2s ease; }
   @media only screen and (max-width: 1200px) {
     .product__hidden {

@@ -26,8 +26,8 @@ hoverCart.addEventListener('mouseenter', openPopUp);
 hoverCart.addEventListener('mouseleave', closePopUp);
 del.addEventListener('click', removeItem);
 
-// Functions
 
+// Functions
 
 // Currency format
 const formatter = new Intl.NumberFormat('en-US', {
@@ -137,10 +137,6 @@ function addItem(e) {
         // Object/Product go in Array
         allProducts.push(product);
 
-        $('.product__qtyNum').on('change paste keyup', () => {
-            showTotal();
-        });
-
         // Change button
         const btn = document.querySelector('.addBtn');
         btn.classList.remove('addBtn');
@@ -155,57 +151,52 @@ function addItem(e) {
 // Remove items from cart list 
 function removeItem(e) {
     e.preventDefault();
-    const el = e.target;
-    const cartItem = el.parentElement.parentElement;
-    const cartList = el.parentElement.parentElement.parentElement;
 
-    if (el.parentElement.classList.contains('mycart__close')) {
-        cartList.removeChild(cartItem);
+    if (e.target.parentElement.classList.contains('mycart__close')) {
+        const item = e.target.parentElement.parentElement;
+        const list = e.target.parentElement.parentElement.parentElement;
+
+        allProducts.map((item, index) => {
+            allProducts.splice(index, 1);
+            // if (item.id === id) {
+
+            // }
+        });
+
+        // console.log(name);
+        // allProducts.forEach(product => {
+        //     for (let i = 0; i < product.length; i++) {
+        //         for (key in product[i]) {
+        //             if (product[i][key].indexOf(name) > -1) {
+        //                 console.log('potrefio si');
+        //             }
+        //         }
+        //     }
+        // });
+        // const index = allProducts.findIndex(x => x.brand === name);
+        // const index = allProducts.indexOf('name');
+        list.removeChild(item);
     }
 
-    allProducts.shift(el);  // TODO remove current element, not 1st or last
+    // allProducts.shift(cartItem);  // TODO remove current element, not 1st or last
 
     showTotal();
 }
-// ---------------------------------------
-
-// // Remove items from cart list 
-// function removeItem(e) {
-//     e.preventDefault();
-
-//     const el = e.target;
-//     const cartItem = el.parentElement.parentElement;
-//     const cartList = el.parentElement.parentElement.parentElement;
-
-//     if (el.parentElement.classList.contains('mycart__close')) {
-//         console.log(allProducts);
-//         allProducts.forEach(product => {
-//             console.log(product);
-//             const removeItem = allProducts.map(product => product.id).indexOf(4)
-//             allProducts.splice(removeItem, 1);
-//         });
-//         // cartList.removeChild(cartItem);
-//     }
-
-//     allProducts.shift(el);  // TODO remove current element, not 1st or last
-//     // console.log(allProducts);
-//     showTotal();
-// }
 
 
 // Show total
-
 function showTotal() {
     const total = [];
     allProducts.forEach(product => {
-        const price = product.listing;
+        const price = product.wholesale;
         const qty = product.qty;
-        total.push(parseFloat(price * qty));
+        total.push(parseFloat(price) * parseFloat(qty));
     });
 
-    const totalMoney = total.reduce((total, price) => {
-        total += price;
-        return total;
+    const totalMoney = allProducts.reduce((agg, cur) => {
+        agg += parseFloat(cur.wholesale) * parseFloat(cur.qty);
+
+        return agg;
     }, 0);
 
     const finalMoney = formatter.format(totalMoney);
