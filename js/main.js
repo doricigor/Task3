@@ -1,6 +1,5 @@
 // TODO: 
 // - Obrisati odabrani proizvod iz niza na removeItem;
-// - Smanjiti iznos na smanjenje kolicine prozivoda;
 // - Kada se klikne dugme odabranog proizvoda ne moze se klikati opet, prelazi u added;
 // - Kada se menja kolicina azurira se total;
 
@@ -40,7 +39,7 @@ const formatter = new Intl.NumberFormat('en-US', {
 stars.forEach(star => {
     star.addEventListener('click', likeItem);
 });
-function likeItem(star) {
+function likeItem() {
     this.children[0].classList.toggle('fas');
 }
 
@@ -78,7 +77,17 @@ function openCart() {
 // Add new items in cart
 add.forEach(el => {
     el.addEventListener('click', addItem);
-})
+
+    // Change button
+
+    el.classList.toggle('addedBtn');
+
+    if (el.classList.contains('addBtn')) {
+        el.innerText = 'ADD';
+    } else {
+        el.innerText = 'ADDED';
+    }
+});
 
 const allProducts = [];
 
@@ -114,7 +123,8 @@ function addItem(e) {
         const html = `
                 <div class="mycart__item">
                     <div class="mycart__close"><i class="fas fa-times"></i></div>
-                    <div class="product__brand" data-id="${product.id}">${product.brand} <span class="product__subbrand">${product.subbrand}</span></div>
+                    <div class="product__brand" data-id="${product.id}">${product.brand} 
+                    <span class="product__subbrand">${product.subbrand}</span></div>
                     <div class="product__wholesale">${formatter.format(product.wholesale * product.qty)}</div>
                     <div class="product__qty">
                     <input type="number" class="product__qtyNum" value="${product.qty}" min="0">
@@ -127,7 +137,8 @@ function addItem(e) {
         const hoverHtml = `
                 <div class="added__item">
                     <div class="product__img"><img src=${product.img} alt="sat"></div>
-                    <div class="product__brand" data-id="${product.id}">${product.brand} <span class="product__subbrand">${product.subbrand}</span></div>
+                    <div class="product__brand" data-id="${product.id}">${product.brand} 
+                    <span class="product__subbrand">${product.subbrand}</span></div>
                     <div class="product__itemNo">${product.itemno}</div>
                 </div>
         `;
@@ -136,12 +147,6 @@ function addItem(e) {
 
         // Object/Product go in Array
         allProducts.push(product);
-
-        // Change button
-        const btn = document.querySelector('.addBtn');
-        btn.classList.remove('addBtn');
-        btn.className = 'addedBtn';
-        btn.innerText = 'ADDED';
 
         showTotal();
     }
@@ -157,25 +162,12 @@ function removeItem(e) {
         const list = e.target.parentElement.parentElement.parentElement;
 
         allProducts.map((item, index) => {
+            // U nizu ostane samo onaj koji je obrisan a ne oni koji nisu jos obrisani.
             allProducts.splice(index, 1);
-            // if (item.id === id) {
 
-            // }
         });
-
-        // console.log(name);
-        // allProducts.forEach(product => {
-        //     for (let i = 0; i < product.length; i++) {
-        //         for (key in product[i]) {
-        //             if (product[i][key].indexOf(name) > -1) {
-        //                 console.log('potrefio si');
-        //             }
-        //         }
-        //     }
-        // });
-        // const index = allProducts.findIndex(x => x.brand === name);
-        // const index = allProducts.indexOf('name');
         list.removeChild(item);
+
     }
 
     // allProducts.shift(cartItem);  // TODO remove current element, not 1st or last
@@ -186,7 +178,9 @@ function removeItem(e) {
 
 // Show total
 function showTotal() {
+
     const total = [];
+
     allProducts.forEach(product => {
         const price = product.wholesale;
         const qty = product.qty;
