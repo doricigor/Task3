@@ -752,12 +752,14 @@ header {
   top: 89px;
   left: -340px;
   flex-direction: column;
-  max-width: 450px;
+  max-width: 470px;
   min-height: 150px;
   border: 1px solid #a9836b;
   background-color: #fff;
   transition: .5s ease;
-  transform: translateX(200%); }
+  transform: translateX(200%);
+  overflow-y: scroll;
+  max-height: 100vh; }
   @media only screen and (max-width: 768px) {
     .added__cart {
       left: 40%;
@@ -863,17 +865,23 @@ header {
   position: absolute;
   top: 79px;
   right: 0;
-  transform: translateX(100%);
+  transform: translateX(130%);
   z-index: 2;
-  height: auto;
+  height: 95vh;
   border: 1px solid #a9836b;
   border-top: none;
   background-color: #fff;
   width: 400px;
-  transition: .2s ease; }
+  transition: .2s ease;
+  -webkit-box-shadow: 0px 0px 18px 1px #a9836b;
+  -moz-box-shadow: 0px 0px 18px 1px #a9836b;
+  box-shadow: 0px 0px 18px 1px #a9836b; }
   @media only screen and (max-width: 768px) {
     .mycart {
       width: 100%; } }
+  @media only screen and (max-width: 576px) {
+    .mycart {
+      margin-top: 75px; } }
 
 .mycart__active {
   transition: .5s ease;
@@ -955,7 +963,10 @@ header {
   justify-content: space-around;
   border-top: 1px solid #a9836b;
   padding: 30px 10px;
-  margin-top: 50px; }
+  margin-top: 50px;
+  position: absolute;
+  bottom: 0;
+  width: 100%; }
 
 .total {
   font-size: 18px;
