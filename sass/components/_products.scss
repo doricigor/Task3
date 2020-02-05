@@ -145,7 +145,7 @@
     color: $text-brown;
 
     @include responsive(lg) {
-        padding: 16px 5px 2px 5px;
+        padding: 26px 5px 2px 15px;
     }
 
     @include responsive(ml) {
@@ -153,7 +153,11 @@
     }
 
     @include responsive(md) {
-        padding: 16px 1px 2px 1px;
+        padding: 10px 1px 2px 1px;
+    }
+
+    @include responsive(sm) {
+        padding: 16px 1px 2px 21px;
     }
 
     i {
@@ -308,7 +312,7 @@
         width: 45px;
     }
     @include responsive(ss) {
-        left: -5px;
+        left: 5px;
     }
 }
 .product__qtyNum {
@@ -344,13 +348,21 @@
     top: 11px;
     right: 22px;
 
+    @include responsive(lg) {
+        right: 12px;
+    }
+
     @include responsive(ml) {
         top: 6px;
-        right: 13px;
+        right: 3px;
     }
 
     @include responsive(md) {
-        right: 8px;
+        right: 0;
+    }
+    @include responsive(sm) {
+        right: 17px;
+        top: 11px;
     }
 
     a {
@@ -359,11 +371,18 @@
         &:visited {
             font-size: 13px;
             position: absolute;
-            top: 23px;
+            top: 7px;
             right: 0;
             cursor: pointer;
             color: $text-brown;
             position: relative;
+
+            @include responsive(lg) {
+                right: 2px;
+            }
+            @include responsive(ml) {
+                right: 7px;
+            }
         }
     }
 }
@@ -387,6 +406,7 @@
         flex-direction: column;
         padding: 10px 50px;
         text-align: center;
+        height: auto;
     }
 }
 .collapse {
@@ -395,9 +415,18 @@
 .product__hidden--img {
     padding-left: 21px;
 
+    @include responsive(lg) {
+        padding-left: 0;
+    }
+
+    @include responsive(lg) {
+        padding-left: 15px;
+    }
+
     @include responsive(md) {
         padding-left: 5px;
     }
+    
 }
 .product__hidden--info {
     font-size: 14px;
@@ -405,6 +434,10 @@
     color: $text-blue-light;
     margin-left: 62px;
     flex: 2;
+
+    @include responsive(lg) {
+        margin-left: 0;
+    }
 
     @include responsive(ml) {
         margin-left: 0;
@@ -417,6 +450,11 @@
     .color {
         padding-right: 116px;
         padding-left: 27px;
+
+        @include responsive(lg) {
+            padding-right: 45px;
+            padding-left: 20px;
+        }
 
         @include responsive(ml) {
             padding-right: 30px;
@@ -432,6 +470,10 @@
     .case {
         padding-left: 83px;
 
+        @include responsive(lg) {
+            padding-left: 50px;
+        }
+
         @include responsive(ml) {
             padding-left: 40px;
         }
@@ -441,6 +483,10 @@
     }
     .features {
         padding-left: 76px;
+
+        @include responsive(lg) {
+            padding-left: 50px;
+        }
 
         @include responsive(ml) {
             padding-left: 40px;

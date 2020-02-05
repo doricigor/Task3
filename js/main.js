@@ -77,26 +77,16 @@ function openCart() {
 // Add new items in cart
 add.forEach(el => {
     el.addEventListener('click', addItem);
-
-    // Change button
-
-    el.classList.toggle('addedBtn');
-
-    if (el.classList.contains('addBtn')) {
-        el.innerText = 'ADD';
-    } else {
-        el.innerText = 'ADDED';
-    }
 });
 
-const allProducts = [];
+let allProducts = [];
 
 function addItem(e) {
     e.preventDefault();
 
     // Grab info from data atr
     const wrap = $(this).parent().parent();
-    const id = $(wrap).find('[data-id]');
+    const index = $(wrap).find('[data-index]');
     const img = $(wrap).find('[data-img] img');
     const brand = $(wrap).find('[data-name]');
     const subbrand = $(wrap).find('[data-subbrand]');
@@ -107,7 +97,7 @@ function addItem(e) {
 
     // Create obj with data atr info
     const product = {
-        id: $(id).attr('data-id'),
+        index: $(index).attr('data-index'),
         img: $(img).attr('src'),
         brand: $(brand).attr('data-name'),
         subbrand: $(subbrand).attr('data-subbrand'),
@@ -119,11 +109,10 @@ function addItem(e) {
 
     if (product.qty > 0) {
         // HTML template created in My Cart
-
         const html = `
                 <div class="mycart__item">
-                    <div class="mycart__close"><i class="fas fa-times"></i></div>
-                    <div class="product__brand" data-id="${product.id}">${product.brand} 
+                    <div class="mycart__close" data-index="${product.index}"><i class="fas fa-times" data-index="${product.index}"></i></div>
+                    <div class="product__brand">${product.brand} 
                     <span class="product__subbrand">${product.subbrand}</span></div>
                     <div class="product__wholesale">${formatter.format(product.wholesale * product.qty)}</div>
                     <div class="product__qty">
@@ -137,7 +126,7 @@ function addItem(e) {
         const hoverHtml = `
                 <div class="added__item">
                     <div class="product__img"><img src=${product.img} alt="sat"></div>
-                    <div class="product__brand" data-id="${product.id}">${product.brand} 
+                    <div class="product__brand" data-id="${product.index}">${product.brand} 
                     <span class="product__subbrand">${product.subbrand}</span></div>
                     <div class="product__itemNo">${product.itemno}</div>
                 </div>
@@ -148,6 +137,17 @@ function addItem(e) {
         // Object/Product go in Array
         allProducts.push(product);
 
+        // Change button
+        const element = e.target;
+        element.classList.toggle('addedBtn');
+
+        if (element.classList.contains('addedBtn')) {
+            addMsg = 'ADDED';
+        } else {
+            addMsg = 'ADD';
+        }
+        element.textContent = addMsg;
+
         showTotal();
     }
 }
@@ -156,22 +156,24 @@ function addItem(e) {
 // Remove items from cart list 
 function removeItem(e) {
     e.preventDefault();
-
+    removedIndex = e.target.parentElement.getAttribute('data-index');
     if (e.target.parentElement.classList.contains('mycart__close')) {
-        const item = e.target.parentElement.parentElement;
-        const list = e.target.parentElement.parentElement.parentElement;
+        // const item = e.target.parentElement.parentElement;
+        // const list = e.target.parentElement.parentElement.parentElement;
+        // Every Item in 1 array
 
         allProducts.map((item, index) => {
-            // U nizu ostane samo onaj koji je obrisan a ne oni koji nisu jos obrisani.
-            allProducts.splice(index, 1);
-
+            if (index == removedIndex) {
+                allProducts.splice(index, 1);
+            }
         });
-        list.removeChild(item);
+        // list.removeChild(item);
 
+        $(document).on('click', '.mycart__close', (e) => {
+            const _self = $(e.currentTarget);
+            _self.parent('.mycart__item').remove();
+        });
     }
-
-    // allProducts.shift(cartItem);  // TODO remove current element, not 1st or last
-
     showTotal();
 }
 
@@ -189,7 +191,6 @@ function showTotal() {
 
     const totalMoney = allProducts.reduce((agg, cur) => {
         agg += parseFloat(cur.wholesale) * parseFloat(cur.qty);
-
         return agg;
     }, 0);
 
