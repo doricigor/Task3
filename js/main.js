@@ -1,8 +1,3 @@
-// TODO: 
-// - Obrisati odabrani proizvod iz niza na removeItem;
-// - Kada se klikne dugme odabranog proizvoda ne moze se klikati opet, prelazi u added;
-// - Kada se menja kolicina azurira se total;
-
 
 // Variables
 const stars = document.querySelectorAll('.product__star');
@@ -87,6 +82,15 @@ function addItem(e) {
     // Grab info from data atr
     const wrap = $(this).parent().parent();
     const index = $(wrap).find('[data-index]');
+    const id = $(index).attr('data-index');
+    let flag = false;
+    allProducts.map( item => {
+        if (item.index == id) 
+            flag = true;
+    });
+    if (flag) 
+        return false;
+    
     const img = $(wrap).find('[data-img] img');
     const brand = $(wrap).find('[data-name]');
     const subbrand = $(wrap).find('[data-subbrand]');
@@ -97,7 +101,7 @@ function addItem(e) {
 
     // Create obj with data atr info
     const product = {
-        index: $(index).attr('data-index'),
+        index: id,
         img: $(img).attr('src'),
         brand: $(brand).attr('data-name'),
         subbrand: $(subbrand).attr('data-subbrand'),
@@ -109,47 +113,74 @@ function addItem(e) {
 
     if (product.qty > 0) {
         // HTML template created in My Cart
-        const html = `
+        
+        // let input = document.createElement('input');
+        //     input.setAttribute('type', 'number');
+        //     input.setAttribute('class', 'product__qtyNum');
+        //     input.setAttribute('min', '0');
+        //     input.value = product.qty;
+
+        createCart(product);
+        createHover(product);
+        
+
+       
+
+        // Object/Product go in Array
+        allProducts.push(product);
+        
+
+        // // Change button
+        // const element = e.target;
+        // element.classList.toggle('addedBtn');
+
+        // if (element.classList.contains('addedBtn')) {
+        //     addMsg = 'ADDED';
+        // } else {
+        //     addMsg = 'ADD';
+        // }
+        // element.textContent = addMsg;
+
+        updateTotal();
+    }
+}
+
+// Create hover cart
+function createHover(product) {
+        const hoverHtml = `
+        <div class="added__item">
+            <div class="product__img"><img src=${product.img} alt="sat"></div>
+            <div class="product__brand" data-id-hover="${product.index}">${product.brand} 
+            <span class="product__subbrand">${product.subbrand}</span></div>
+            <div class="product__itemNo">${product.itemno}</div>
+        </div>
+    `;
+
+    addedCart__list.insertAdjacentHTML('afterbegin', hoverHtml);
+}
+
+// Create slideIn cart
+function createCart(product) {
+
+    const html = `
                 <div class="mycart__item">
                     <div class="mycart__close" data-index="${product.index}"><i class="fas fa-times" data-index="${product.index}"></i></div>
                     <div class="product__brand">${product.brand} 
                     <span class="product__subbrand">${product.subbrand}</span></div>
                     <div class="product__wholesale">${formatter.format(product.wholesale * product.qty)}</div>
                     <div class="product__qty">
-                    <input type="number" class="product__qtyNum" value="${product.qty}" min="0">
+                    <input type="number" onChange='updateQty(${product.index}, event)' class="product__qtyNum" value="${product.qty}" min="0">
                     </div>
                 </div>
         `;
 
         mycart__list.insertAdjacentHTML('afterbegin', html);
+}
 
-        const hoverHtml = `
-                <div class="added__item">
-                    <div class="product__img"><img src=${product.img} alt="sat"></div>
-                    <div class="product__brand" data-id="${product.index}">${product.brand} 
-                    <span class="product__subbrand">${product.subbrand}</span></div>
-                    <div class="product__itemNo">${product.itemno}</div>
-                </div>
-        `;
-
-        addedCart__list.insertAdjacentHTML('afterbegin', hoverHtml);
-
-        // Object/Product go in Array
-        allProducts.push(product);
-
-        // Change button
-        const element = e.target;
-        element.classList.toggle('addedBtn');
-
-        if (element.classList.contains('addedBtn')) {
-            addMsg = 'ADDED';
-        } else {
-            addMsg = 'ADD';
-        }
-        element.textContent = addMsg;
-
-        showTotal();
-    }
+function toggleAdd(btn) {
+    console.log(btn);
+    btn.classList.add('addedBtn');
+    btn.innerHTML = 'ADDED';
 }
 
 
@@ -163,40 +194,82 @@ function removeItem(e) {
         // Every Item in 1 array
 
         allProducts.map((item, index) => {
-            if (index == removedIndex) {
+            if (item.index == removedIndex) {
                 allProducts.splice(index, 1);
+                let ele = document.getElementById('btn-' + item.index);
+                ele.classList.remove('addedBtn');
+                ele.innerHTML = 'ADD';
+                $('[data-id-hover='+ item.index+']').parent().remove();
+                updateTotal();
             }
         });
         // list.removeChild(item);
-
+        
         $(document).on('click', '.mycart__close', (e) => {
             const _self = $(e.currentTarget);
             _self.parent('.mycart__item').remove();
         });
     }
-    showTotal();
 }
 
 
+    var total = 0;
+
 // Show total
-function showTotal() {
+// function showTotal(flag, product) {
 
-    const total = [];
+//     let price = product.wholesale,
+//         qty = product.qty,
+//         productTotal = (parseFloat(price) * parseFloat(qty));
 
-    allProducts.forEach(product => {
-        const price = product.wholesale;
-        const qty = product.qty;
-        total.push(parseFloat(price) * parseFloat(qty));
+//     (flag === 'plus') ? total += productTotal : total -= productTotal;
+    
+
+//     totalTop.textContent = total;
+//     totalBottom.textContent = total;
+//     totalItem.textContent = allProducts.length;
+
+    
+
+    // allProducts.forEach(product => {
+    //     const price = product.wholesale;
+    //     const qty = product.qty;
+    //     total.push(parseFloat(price) * parseFloat(qty));
+    // });
+
+    // const totalMoney = allProducts.reduce((agg, cur) => {
+    //     agg += parseFloat(cur.wholesale) * parseFloat(cur.qty);
+    //     return agg;
+    // }, 0);
+
+    // const finalMoney = formatter.format(totalMoney);
+
+    // totalTop.textContent = finalMoney;
+    // totalBottom.textContent = finalMoney;
+    // totalItem.textContent = total.length;
+// }
+
+function updateQty(index, val) {
+    allProducts.map( item => { 
+        if (item.index == index) {
+            item.qty = val.target.value;
+        }
     });
 
-    const totalMoney = allProducts.reduce((agg, cur) => {
-        agg += parseFloat(cur.wholesale) * parseFloat(cur.qty);
-        return agg;
-    }, 0);
+    updateTotal();
+}
 
-    const finalMoney = formatter.format(totalMoney);
+function updateTotal() {
+    total = 0;
 
-    totalTop.textContent = finalMoney;
-    totalBottom.textContent = finalMoney;
-    totalItem.textContent = total.length;
+    allProducts.map(item => {
+        let price = item.wholesale;
+        let qty = item.qty;
+        let productTotal = (parseFloat(price) * parseFloat(qty));
+        total += productTotal;
+    });
+
+    totalTop.textContent = total;
+    totalBottom.textContent = total;
+    totalItem.textContent = allProducts.length;
 }
