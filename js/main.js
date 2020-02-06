@@ -29,7 +29,6 @@ const formatter = new Intl.NumberFormat('en-US', {
     currency: 'USD'
 });
 
-
 // Like and dislike of product
 stars.forEach(star => {
     star.addEventListener('click', likeItem);
@@ -37,7 +36,6 @@ stars.forEach(star => {
 function likeItem() {
     this.children[0].classList.toggle('fas');
 }
-
 
 // Collapse hidden info for products
 arrow.forEach(el => {
@@ -48,13 +46,11 @@ function collapseInfo(el) {
     productWrap.classList.toggle('wrap__active');
 }
 
-
 // Open popup when item is added
 function openPopUp() {
     const addedCart = this.children[2];
     addedCart.classList.toggle('added__cart--active');
 }
-
 
 // Close popup when item is added
 function closePopUp() {
@@ -62,12 +58,10 @@ function closePopUp() {
     addedCart.classList.remove('added__cart--active');
 }
 
-
 // Open MyCart with added products
 function openCart() {
     myCart.classList.toggle('mycart__active');
 }
-
 
 // Add new items in cart
 add.forEach(el => {
@@ -84,13 +78,14 @@ function addItem(e) {
     const index = $(wrap).find('[data-index]');
     const id = $(index).attr('data-index');
     let flag = false;
-    allProducts.map( item => {
-        if (item.index == id) 
+
+    allProducts.map(item => {
+        if (item.index == id)
             flag = true;
     });
-    if (flag) 
+    if (flag)
         return false;
-    
+
     const img = $(wrap).find('[data-img] img');
     const brand = $(wrap).find('[data-name]');
     const subbrand = $(wrap).find('[data-subbrand]');
@@ -113,33 +108,14 @@ function addItem(e) {
 
     if (product.qty > 0) {
         // HTML template created in My Cart
-        
-        // let input = document.createElement('input');
-        //     input.setAttribute('type', 'number');
-        //     input.setAttribute('class', 'product__qtyNum');
-        //     input.setAttribute('min', '0');
-        //     input.value = product.qty;
 
+        // Function for create HTML template My Cart
         createCart(product);
+        // Function for create HTML template Hover Added Cart
         createHover(product);
-        
-
-       
 
         // Object/Product go in Array
         allProducts.push(product);
-        
-
-        // // Change button
-        // const element = e.target;
-        // element.classList.toggle('addedBtn');
-
-        // if (element.classList.contains('addedBtn')) {
-        //     addMsg = 'ADDED';
-        // } else {
-        //     addMsg = 'ADD';
-        // }
-        // element.textContent = addMsg;
 
         updateTotal();
     }
@@ -147,7 +123,7 @@ function addItem(e) {
 
 // Create hover cart
 function createHover(product) {
-        const hoverHtml = `
+    const hoverHtml = `
         <div class="added__item">
             <div class="product__img"><img src=${product.img} alt="sat"></div>
             <div class="product__brand" data-id-hover="${product.index}">${product.brand} 
@@ -155,7 +131,6 @@ function createHover(product) {
             <div class="product__itemNo">${product.itemno}</div>
         </div>
     `;
-
     addedCart__list.insertAdjacentHTML('afterbegin', hoverHtml);
 }
 
@@ -173,25 +148,20 @@ function createCart(product) {
                     </div>
                 </div>
         `;
-
-        mycart__list.insertAdjacentHTML('afterbegin', html);
+    mycart__list.insertAdjacentHTML('afterbegin', html);
 }
 
+// Toggle addBtn - Add -> Added
 function toggleAdd(btn) {
-    console.log(btn);
     btn.classList.add('addedBtn');
     btn.innerHTML = 'ADDED';
 }
-
 
 // Remove items from cart list 
 function removeItem(e) {
     e.preventDefault();
     removedIndex = e.target.parentElement.getAttribute('data-index');
     if (e.target.parentElement.classList.contains('mycart__close')) {
-        // const item = e.target.parentElement.parentElement;
-        // const list = e.target.parentElement.parentElement.parentElement;
-        // Every Item in 1 array
 
         allProducts.map((item, index) => {
             if (item.index == removedIndex) {
@@ -199,12 +169,11 @@ function removeItem(e) {
                 let ele = document.getElementById('btn-' + item.index);
                 ele.classList.remove('addedBtn');
                 ele.innerHTML = 'ADD';
-                $('[data-id-hover='+ item.index+']').parent().remove();
+                $('[data-id-hover=' + item.index + ']').parent().remove();
                 updateTotal();
             }
         });
-        // list.removeChild(item);
-        
+
         $(document).on('click', '.mycart__close', (e) => {
             const _self = $(e.currentTarget);
             _self.parent('.mycart__item').remove();
@@ -212,53 +181,19 @@ function removeItem(e) {
     }
 }
 
+var total = 0;
 
-    var total = 0;
-
-// Show total
-// function showTotal(flag, product) {
-
-//     let price = product.wholesale,
-//         qty = product.qty,
-//         productTotal = (parseFloat(price) * parseFloat(qty));
-
-//     (flag === 'plus') ? total += productTotal : total -= productTotal;
-    
-
-//     totalTop.textContent = total;
-//     totalBottom.textContent = total;
-//     totalItem.textContent = allProducts.length;
-
-    
-
-    // allProducts.forEach(product => {
-    //     const price = product.wholesale;
-    //     const qty = product.qty;
-    //     total.push(parseFloat(price) * parseFloat(qty));
-    // });
-
-    // const totalMoney = allProducts.reduce((agg, cur) => {
-    //     agg += parseFloat(cur.wholesale) * parseFloat(cur.qty);
-    //     return agg;
-    // }, 0);
-
-    // const finalMoney = formatter.format(totalMoney);
-
-    // totalTop.textContent = finalMoney;
-    // totalBottom.textContent = finalMoney;
-    // totalItem.textContent = total.length;
-// }
-
+// Function for update qty of product in cart
 function updateQty(index, val) {
-    allProducts.map( item => { 
+    allProducts.map(item => {
         if (item.index == index) {
             item.qty = val.target.value;
         }
     });
-
     updateTotal();
 }
 
+// Function for update and show Total
 function updateTotal() {
     total = 0;
 
@@ -269,7 +204,7 @@ function updateTotal() {
         total += productTotal;
     });
 
-    totalTop.textContent = total;
-    totalBottom.textContent = total;
+    totalTop.textContent = formatter.format(total);
+    totalBottom.textContent = formatter.format(total);
     totalItem.textContent = allProducts.length;
 }
