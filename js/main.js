@@ -16,8 +16,6 @@ const addedCart__list = document.querySelector('.added__cart');
 
 // Listeners
 openMyCart.addEventListener('click', openCart);
-hoverCart.addEventListener('mouseenter', openPopUp);
-hoverCart.addEventListener('mouseleave', closePopUp);
 del.addEventListener('click', removeItem);
 
 
@@ -48,14 +46,12 @@ function collapseInfo(el) {
 
 // Open popup when item is added
 function openPopUp() {
-    const addedCart = this.children[2];
-    addedCart.classList.toggle('added__cart--active');
+    $('.added__cart').addClass('added__cart--active');
 }
 
 // Close popup when item is added
 function closePopUp() {
-    const addedCart = this.children[2];
-    addedCart.classList.remove('added__cart--active');
+    $('.added__cart').removeClass('added__cart--active');
 }
 
 // Open MyCart with added products
@@ -77,15 +73,6 @@ function addItem(e) {
     const wrap = $(this).parent().parent();
     const index = $(wrap).find('[data-index]');
     const id = $(index).attr('data-index');
-    let flag = false;
-
-    allProducts.map(item => {
-        if (item.index == id)
-            flag = true;
-    });
-    if (flag)
-        return false;
-
     const img = $(wrap).find('[data-img] img');
     const brand = $(wrap).find('[data-name]');
     const subbrand = $(wrap).find('[data-subbrand]');
@@ -109,26 +96,31 @@ function addItem(e) {
     if (product.qty > 0) {
         // HTML template created in My Cart
 
+        // Object/Product go in Array
+        allProducts.push(product);
+        let lastItem = allProducts[allProducts.length - 1];
+
         // Function for create HTML template My Cart
         createCart(product);
         // Function for create HTML template Hover Added Cart
-        createHover(product);
-
-        // Object/Product go in Array
-        allProducts.push(product);
-
+        createHover(lastItem);
+        // Function for open popup window after add product
+        openPopUp();
+        // Function for update Total
         updateTotal();
+        // Function for show added item and delite it after 3 sec from popup window
+        showAndDelete();
     }
 }
 
 // Create hover cart
-function createHover(product) {
+function createHover(lastItem) {
     const hoverHtml = `
         <div class="added__item">
-            <div class="product__img"><img src=${product.img} alt="sat"></div>
-            <div class="product__brand" data-id-hover="${product.index}">${product.brand} 
-            <span class="product__subbrand">${product.subbrand}</span></div>
-            <div class="product__itemNo">${product.itemno}</div>
+            <div class="product__img"><img src=${lastItem.img} alt="sat"></div>
+            <div class="product__brand">${lastItem.brand} 
+            <span class="product__subbrand">${lastItem.subbrand}</span></div>
+            <div class="product__itemNo">${lastItem.itemno}</div>
         </div>
     `;
     addedCart__list.insertAdjacentHTML('afterbegin', hoverHtml);
@@ -157,6 +149,17 @@ function toggleAdd(btn) {
     btn.innerHTML = 'ADDED';
 }
 
+// Function for hide and delete popup
+let hiddePopUp;
+let deleteLastItem;
+
+function showAndDelete() {
+    lastItem = setTimeout(closePopUp, 3000);
+    deleteLastItem = setTimeout(() => {
+        $('.added__cart').children().remove();
+    }, 3000);
+}
+
 // Remove items from cart list 
 function removeItem(e) {
     e.preventDefault();
@@ -169,7 +172,6 @@ function removeItem(e) {
                 let ele = document.getElementById('btn-' + item.index);
                 ele.classList.remove('addedBtn');
                 ele.innerHTML = 'ADD';
-                $('[data-id-hover=' + item.index + ']').parent().remove();
                 updateTotal();
             }
         });
@@ -181,6 +183,7 @@ function removeItem(e) {
     }
 }
 
+// Global total field
 var total = 0;
 
 // Function for update qty of product in cart

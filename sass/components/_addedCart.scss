@@ -6,11 +6,9 @@
     flex-direction: column;
     max-width: 470px;
     min-height: 150px;
-    border: 1px solid $text-brown;
     background-color: $color-white;
     transition: .5s ease;
     transform: translateX(200%);
-    overflow-y: scroll;
     max-height: 600px;
 
 
@@ -27,34 +25,21 @@
         min-height: auto;
         left: -20px;
         width: 250px;
-        // right: 10%;
-    }
-
-    &::before {
-        content: '';
-        clip-path: polygon(50% 52%, 0% 100%, 100% 100%);
-        background-color: $color-white;
-        position: absolute;
-        top: -47px;
-        right: 16px;
-        height: 50px;
-        width: 50px;
-
-        @include responsive(xs) {
-            display: none;
-        }
     }
 }
 .added__cart--active {
     transition: .5s ease;
     transform: translateX(0);
+    border: 1px solid $text-brown;
 
     @include responsive(sm) {
         transform: translateX(-60%);
     }
+
     @include responsive(xs) {
-        transform: translateX(-50%);
+        transform: translateX(-30%);
     }
+
     @include responsive(ss) {
         transform: translateX(0);
     }
@@ -79,6 +64,10 @@
     display: flex;
     padding: 30px;
 
+    @include responsive(xs) {
+        padding: 15px 10px;
+    }
+
     @include responsive(ss) {
         padding: 15px 12px;
         flex-direction: column;
@@ -100,16 +89,17 @@
         font-size: 18px;
         padding: 0 23px 0 28px;
 
-        @include responsive(ss) {
+        @include responsive(xs) {
             font-size: 15px;
+            padding: 0 15px;
         }
     }
     .product_subbrand {
         letter-spacing: .5px;
         font-size: 16px;
 
-        @include responsive(ss) {
-            font-size: 9px;
+        @include responsive(xs) {
+            font-size: 12px;
         }
     }
 
@@ -118,6 +108,7 @@
         width: auto;
         font-size: 14px;
         color: $text-blue;
+        
         @include responsive(ss) {
             font-size: 11px;
         }
@@ -129,6 +120,12 @@
     color: $text-blue-light;
     border-top: 1px solid $text-brown;
     padding: 10px 84px;
+
+    @include responsive(xs) {
+        font-size: 14px;
+        text-align: center;
+        padding: 10px 20px;
+    }
 
     @include responsive(ss) {
         font-size: 10px;

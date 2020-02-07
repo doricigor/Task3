@@ -37,7 +37,7 @@
     }
 }
 .products__item--brand {
-    margin-left: 63px;
+    margin-left: 55px;
 }
 .products__item--itemNo {
     margin-left: 267px;
@@ -85,7 +85,7 @@
     }
 }
 .products__item--qty {
-    margin-left: 124px;
+    margin-left: 120px;
 
     @include responsive(lg) {
         margin-left: 64px;
@@ -221,27 +221,31 @@
     @include responsive(md) {
         font-size: 12px;
     }
+
     @include responsive(sm) {
         font-size: 14px;
     }
 }
 .product__itemNo {
     padding: 22px 65px;
-    color: $text-blue;
+    color: $color-blue-dark;
     width: 300px;
 
     @include responsive(lg) {
         padding: 13px 50px;
         width: 240px;
     }
+
     @include responsive(ml) {
         width: 171px;
         padding: 13px 10px;
     }
+
     @include responsive(md) {
         font-size: 13px;
         padding: 13px 2px;
     }
+
     @include responsive(sm) {
         font-size: 16px;
         padding: 8px 8px;
@@ -261,6 +265,7 @@
         font-size: 13px;
         padding: 13px 8px;
     }
+
     @include responsive(sm) {
         display: none;
     }
@@ -311,6 +316,7 @@
         bottom: 0;
         width: 45px;
     }
+
     @include responsive(ss) {
         left: 5px;
     }
@@ -336,6 +342,7 @@
         padding: 13px 20px;
         width: 190px;
     }
+
     @include responsive(sm) {
         width: 95%;
         margin: 0 auto;
@@ -360,6 +367,7 @@
     @include responsive(md) {
         right: 0;
     }
+
     @include responsive(sm) {
         right: 17px;
         top: 11px;
@@ -380,6 +388,7 @@
             @include responsive(lg) {
                 right: 2px;
             }
+
             @include responsive(ml) {
                 right: 7px;
             }
@@ -388,7 +397,6 @@
 }
 
 .product__hidden {
-    transition: all .2s ease;
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -402,6 +410,7 @@
     @include responsive(ml) {
         padding: 15px 5px 0 0;
     }
+
     @include responsive(sm) {
         flex-direction: column;
         padding: 10px 50px;
@@ -477,6 +486,7 @@
         @include responsive(ml) {
             padding-left: 40px;
         }
+
         @include responsive(md) {
             padding-left: 15px;
         }
@@ -491,6 +501,7 @@
         @include responsive(ml) {
             padding-left: 40px;
         }
+        
         @include responsive(md) {
             padding-left: 12px;
         }
