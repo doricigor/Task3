@@ -36,4 +36,10 @@
             @content
         }
     };
+
+    @if $breakpoint==xl {
+        @media only screen and (max-width: 1660px) {
+            @content
+        }
+    };
 }
