@@ -25,7 +25,7 @@
         content: '';
         height: 11px;
         width: 210px;
-        background-color: $text-brown;
+        background-color: #dac5b8;
         position: absolute;
         top: 0;
         left: 50.5%;
@@ -68,18 +68,18 @@
         font-size: 18px;
         letter-spacing: 1px;
         font-family: $lato;
+        transition: .3s ease;
+
+        &:hover {
+            color: $text-brown;
+        }
 
         @include responsive(xs) {
             font-size: 15px;
         }
     }
 }
-.gold {
-    &:link,
-    &:visited {
-        color: $text-brown;
-    }
-}
+
 .footer__center {
     text-align: center;
     position: relative;
@@ -135,6 +135,7 @@
     margin-top: 34px;
     li {
         padding: 2px;
+        
     }
     a {
         &:link,
@@ -143,6 +144,11 @@
             font-family: $lato;
             font-size: 16px;
             color: $text-blue;
+            transition: .3s ease;
+
+        &:hover {
+            color: $text-brown;
+        }
         }
     }
 }
