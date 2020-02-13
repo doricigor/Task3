@@ -15,7 +15,7 @@ const app = {
     $totalBottom: $('.total'),
     $totalItem: $('.header__totalItem'),
     $mycart__list: $('.mycart__list'),
-    $addedCart__list: $('.added__cart'),
+    $addedCart__list: $('.added__cartContainer'),
     $close: $('.close'),
     total: 0,
     lastItem: 0,
@@ -55,6 +55,23 @@ const app = {
         // Event for change input field
         $(document).on('change', '.product__input', app.inputs);
 
+        // Show more info on responsive for phone and tabs / remowe arrow
+        $(window).resize(function() {
+            if($(window).width() <= 768) {
+                $('.product__arrow i').removeClass();
+                $('.product__arrow i').html('More info');
+            } 
+            if($(window).width() > 768) {
+                $('.product__arrow i').addClass('fas fa-chevron-down');
+                $('.product__arrow i').html('');
+            }
+        }).resize();
+
+        // Click on hover card to open MyCart
+        $(document).on('click', '.added__item', function () { 
+            $('.added__cart').toggleClass('added__cart--active');
+            $('.mycart').toggleClass('mycart__active');
+        });
     },
 
     // ------------- Functions -------------
@@ -70,7 +87,6 @@ const app = {
                     this.allProducts.splice(index, 1);
                     this.updateTotal();
                     if (this.allProducts.length == 0) {
-                        console.log('nula');
                         $('.product__qtyNum').val(0);
                         $('.addBtn').removeClass('addedBtn').html('ADD');
                     }
@@ -100,6 +116,8 @@ const app = {
     // Collapse hidden info for products
     collapseInfo: function (event) {
         $(event.target).parent().parent().parent().parent().toggleClass('wrap__active');
+        // Rotate arrow
+        $(event.target).toggleClass('fa-chevron-up');
     },
 
     // Open popup when item is added
@@ -195,7 +213,7 @@ const app = {
                 <div class="product__brand">${product.brand} 
                 <span class="product__subbrand">${product.subbrand}</span></div>
                 <div class="product__wholesale">${formatter.format(product.wholesale * product.qty)}</div>
-                <div class="product__qty">
+                <div class="product__qty listQty">
                 <input type="number" class="product__qtyNum product__input" data-index="${product.index}" value="${product.qty}" min="0">
                 </div>
             </div>

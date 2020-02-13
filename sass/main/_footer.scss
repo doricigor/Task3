@@ -1,14 +1,16 @@
+.footer__row {
+    margin: 0;
+}
+
 .footer {
     background-color: $color-primary;
     margin-top: 190px;
 
-    @include responsive(md) {
-        margin-top: 130px;
-    }
     @include responsive(xs) {
         margin-top: 75px;
     }
 }
+
 .footer__wrap {
     margin: 0 auto;
     position: relative;
@@ -19,6 +21,7 @@
     @include responsive(ml) {
         padding-top: 60px;
         padding-left: 0;
+        padding-right: 0;
     }
 
     &::before {
@@ -33,37 +36,35 @@
 
         @include responsive(ml) {
             left: 50%;
-            transform: translateX(-55%);
+            transform: translateX(-50%);
         }
     }
 }
+
 .footer__left {
     padding-right: 106px;
     text-align: center;
    
     @include responsive(ml) {
         padding-right: 0;
-        padding-right: 0;
     }
 }
+
 .footer__list {
     list-style: none;
     margin-top: 34px;
     padding-left: 0;
-    padding-right: 26px;
+    padding-right: 0;
     text-align: center;
-
-    @include responsive(lg) {
-        padding-right: 0;
-    }
-
 }
+
 .footer__item {
     padding: 6px;
     line-height: 27px;
 }
 
 .footer__link {
+
     &:link,
     &:visited {
         text-decoration: none;
@@ -91,18 +92,20 @@
     text-align: center;
     position: relative;
 
-    @include responsive(md) {
-        margin-top: 40px;
-        padding-left: 0;
+    @include responsive(ml) {
         padding-right: 0;
+        padding-right: 0;
+        margin-top: 20px;
     }
 
     span {
         margin-left: -4px;
-        @include responsive(md) {
+
+        @include responsive(ml) {
             margin-left: 0;
         }
     }
+
     a {
         display: block;
     }
@@ -135,6 +138,7 @@
         }
     }
 }
+
 .footer__info,
 .footer__contact {
     list-style: none;
@@ -147,7 +151,7 @@
     }
 
     li {
-        padding: 2px;
+        padding: 2px 0;
         
     }
     a {
@@ -165,16 +169,24 @@
         }
     }
 }
+
 .footer__info {
     margin-top: 61px;
 
-    @include responsive(md) {
-        margin-top: 38px;
+    @include responsive(ml) {
+        margin-top: 30px;
     }
 }
+
 .footer__contact {
     margin-bottom: 34px;
+
+    @include responsive(ml) {
+        margin-bottom: 30px;
+        margin-top: 20px;
+    }
 }
+
 .footer__right {
     text-align: right;
     position: relative;
@@ -182,22 +194,26 @@
 
     @include responsive(xl) {
         text-align: center;
+        padding-left: 30px;
     }
 
-    @include responsive(md) {
+    @include responsive(ml) {
         padding-right: 0;
-        padding-right: 0;
-        margin-top: 17px;
+    }
+
+    @include responsive(xs) {
+        padding-left: 0;
     }
 }
+
 .newsletter {
     margin-right: 7px;
 
-    @include responsive(md) {
-        position: relative;
-        left: auto;
+    @include responsive(ml) {
+        margin-right: 0;
     }
 }
+
 .newsletter__container {
     max-width: 390px;
     max-height: 75px;
@@ -211,17 +227,36 @@
     padding: 0 20px;
     margin-top: 113px;
     margin-left: 100px;
+    transition: .2s ease;
+
+    &:hover {
+        border: 1px solid $text-brown;
+    }
 
     @include responsive(xl) {
         margin-left: auto;
         margin-right: auto;
-        width: 80%;
+    }
+
+    @include responsive(ml) {
+        margin-top: 40px;
+    }
+
+    @include responsive(ss) {
+        max-width: 310px;
+        margin: 40px auto 0 auto;
+        width: 90%;
     }
 }
 
 .newsletter__mail {
     font-size: 24px;
+
+    @include responsive(ss) {
+        font-size: 20px;
+    }
 }
+
 .newsletter__input {
     flex: 2;
     background-color: transparent;
@@ -229,11 +264,24 @@
     padding: 30px;
     text-align: center;
     outline: none;
+    transition: .2s ease;
+
+    @include responsive(ss) {
+        padding: 30px 10px;
+    }
+
+    &:focus {
+        color: $text-brown;
+    }
 
     &::placeholder {
         text-transform: uppercase;
         letter-spacing: 2px;
         font-size: 13px;
+
+        @include responsive(ss) {
+            font-size: 11px;
+        }
     }
 }
 
@@ -249,15 +297,15 @@
 
 .footer__heading {
     font-size: 28px;
-    font-family: $myriad;
     text-transform: uppercase;
     line-height: 36px;
     letter-spacing: 10px;
     font-family: 'Butler';
     font-weight: 900;
+    color: $text-blue;
 
     @include responsive(xs) {
-        font-size: 20px;
+        font-size: 25px;
         letter-spacing: 3px;
     }
 }
@@ -274,12 +322,12 @@
         font-weight: bold;
     }
 
-    @include responsive(md) {
-        margin-top: 45px;
+    @include responsive(ml) {
+        margin-top: 60px;
         margin-left: 0;
     }
     @include responsive(xs) {
-        margin-top: 0;
+        margin-top: 40px;
         font-size: 13px;
         padding-bottom: 20px;
     }

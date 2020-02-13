@@ -1,24 +1,44 @@
 header {
     border-top: .5px solid $color-brown-line;
 }
+
 .header {
     display: flex;
     justify-content: space-between;
     align-items: stretch;
 
     @include responsive(xs) {
-        flex-direction: column;
+        align-items: center;
     }
 }
+
 .header__left {
     margin-right: 30px;
     padding: 2px 22px 0 0;
+    align-self: center;
 
     @include responsive(xs) {
         margin: 0 auto;
         padding: 0;
     }
 }
+
+.header__logoLink {
+    display: inline-block;
+
+    @include responsive(sm) {
+        width: 130px;
+    }
+
+    @include responsive(ss) {
+        width: 100px;
+    }
+}
+
+.header__logoImg {
+    width: 100%;
+}
+
 .header__center {
     flex: 2;
     width: 100%;
@@ -29,6 +49,7 @@ header {
         display: none;   
     }
 }
+
 .header__right {
     display: flex;
     padding: 30px 24px 20px 29px;
@@ -43,14 +64,17 @@ header {
         margin: 0 auto;   
     }
 }
+
 .header__corp {
     position: relative;
     margin-top: -5px;
     left: 8px;
+
     i {
         color: $text-brown;
     }
 }
+
 .header__totalItem {
     height: 18px;
     width: 18px;
@@ -64,14 +88,17 @@ header {
     left: 47px;
     z-index: 1;
 }
+
 .header__cashContainer {
     display: flex;
     flex-direction: column;
     padding-left: 44px;
 }
+
 .header__total {
     color: $color-blue-light;
 }
+
 .header__cash {
     color: $text-brown;
     font-size: 19px;
@@ -87,8 +114,5 @@ header {
         top: -15px;
         left: 0;
 
-        @include responsive(xs) {
-            left: 30px;
-        }
     }
 }

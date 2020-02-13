@@ -7,30 +7,37 @@
     transform: translateX(130%);
     z-index: 2;
     height: 92vh;
+    width: 400px;
     border: 1px solid $text-brown;
     border-top: none;
     background-color: $color-white;
-    width: 400px;
     transition: .2s ease;
     -webkit-box-shadow: 0px 0px 18px 1px rgba(169,131,107,1);
     -moz-box-shadow: 0px 0px 18px 1px rgba(169,131,107,1);
     box-shadow: 0px 0px 18px 1px rgba(169,131,107,1);
+    visibility: hidden;
 
     @include responsive(sm) {
         width: 100%;
     }
+
     @include responsive(xs) {
         margin-top: 75px;
+        height: auto;
     }
 }
+
 .mycart__active {
     transition: .5s ease;
     transform: translateX(0);
+    visibility: visible;
 }
+
 .mycart__top {
     display: flex;
     flex-direction: column;
 }
+
 .mycart__heading {
     font-size: 20px;
     font-family: $lato;
@@ -38,10 +45,20 @@
     padding: 20px 15px;
     font-weight: bold;
     border-bottom: 1px solid $text-brown;
+
+    @include responsive(sm) {
+        text-align: center;
+    }
 }
+
 .mycart__list {
     margin-top: 50px;
+
+    @include responsive(xs) {
+        margin-top: 20px;
+    }
 }
+
 .mycart__item {
     display: flex;
     align-items: center;
@@ -68,18 +85,21 @@
             font-size: 14px;
         }
     }
+
     .product__subbrand {
         
         @include responsive(sm) {
             font-size: 12px;
         }
     }
+
     .product__wholesale {
         padding: 0;
         font-size: 12px;
         width: auto;
         font-size: 14px;
     }
+
     .product__qty {
         padding: 0;
         width: auto;
@@ -104,6 +124,15 @@
         
     }
 }
+
+.listQty {
+    margin: 0;
+
+    @media only screen and (max-width: 390px) {
+        margin-top: 10px;
+    }
+}
+
 .mycart__close {
     font-size: 20px;
     color: $text-brown;
@@ -124,7 +153,12 @@
     position: absolute;
     bottom: 0;
     width: 100%;
+
+    @include responsive(xs) {
+        position: relative;
+    }
 }
+
 .total {
     font-size: 18px;
     font-family: $lato;
@@ -142,6 +176,7 @@
         left: 0;
     }
 }
+
 .checkout {
 
     a {
