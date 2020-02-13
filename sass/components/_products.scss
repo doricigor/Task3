@@ -324,6 +324,15 @@
     }
 }
 
+.alert {
+    width: 250px;
+    position: absolute;
+    left: 50%;
+    top: 20%;
+    transform: translate(-50%, -50%);
+    display: none;
+}
+
 .product__qtyNum {
     position: relative;
     color: $text-brown;

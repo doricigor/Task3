@@ -10,9 +10,6 @@ body {
   overflow-x: hidden; }
 
 header {
-  overflow-x: hidden; }
-
-header {
   border-top: 0.5px solid #ddccb8; }
 
 .header {
@@ -651,6 +648,14 @@ header {
   @media only screen and (max-width: 768px) {
     .product__qty {
       margin: 0 auto; } }
+
+.alert {
+  width: 250px;
+  position: absolute;
+  left: 50%;
+  top: 20%;
+  transform: translate(-50%, -50%);
+  display: none; }
 
 .product__qtyNum {
   position: relative;

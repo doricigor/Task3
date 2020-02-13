@@ -9,6 +9,7 @@ const app = {
     $openMyCart: $('.header__corp'),
     $hoverCart: $('.header__right'),
     $myCart: $('.mycart'),
+    $addedCart: $('added__cart'),
     $add: $('.addBtn'),
     $del: $('.mycart__list'),
     $totalTop: $('.header__cash'),
@@ -37,26 +38,30 @@ const app = {
             _this.$myCart.toggleClass('mycart__active');
         });
 
+        // Click on hover card to open MyCart
+        $(document).on('click', '.added__item', function () { 
+            $('.added__cart').toggleClass('added__cart--active');
+            $('.mycart').toggleClass('mycart__active');
+        });
+
+        // // Close MyCart on click outside of MyCart
+        // $(document).on('click', function(e) {
+        //                if (!_this.$myCart.is(e.target) && _this.$myCart.has(e.target).length === 0) {
+        //         console.log('asdasd');
+        //     }
+        //     // let element = e.target;
+        //     // if ($('.mycart').hasClass('mycart__active')) {
+
+        //     //     if ($(element).is('.mycart') === false) {
+        //     //         $('.mycart').removeClass('mycart__active');
+        //     //     }
+        //     // }
+        // });
+
         // Close MyCart on ESC
         $(document).on('keyup', function(e) {
             if (e.keyCode == 27) {
                 _this.$myCart.removeClass('mycart__active');
-            }
-        });
-
-        // Close MyCart on click outside of MyCart
-        $(document).on('click', function(e) {
-            if ($(_this.$myCart).hasClass('mycart__active')) {
-                console.log('sdasd')
-                console.log(e.target)
-                let element = e.target;
-                if (element.hasClass('mycart__active')) {
-                    console.log('ima klasu')
-                }
-                // if ($(e.target).is('.mycart') === false) {
-                //     _this.$myCart.removeClass('mycart__active');
-                //     console.log('drugi if')
-                // }
             }
         });
 
@@ -89,12 +94,6 @@ const app = {
                 $('.product__arrow i').html('');
             }
         }).resize();
-
-        // Click on hover card to open MyCart
-        $(document).on('click', '.added__item', function () { 
-            $('.added__cart').toggleClass('added__cart--active');
-            $('.mycart').toggleClass('mycart__active');
-        });
     },
 
     // ------------- Functions -------------
@@ -210,8 +209,7 @@ const app = {
 
             // Function for show added item and delite it after 3 sec from popup window
             this.showAndDelete();
-        }
-        // this.test();
+        } 
     },
    
     // Create hover cart
