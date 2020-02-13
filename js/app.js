@@ -37,6 +37,29 @@ const app = {
             _this.$myCart.toggleClass('mycart__active');
         });
 
+        // Close MyCart on ESC
+        $(document).on('keyup', function(e) {
+            if (e.keyCode == 27) {
+                _this.$myCart.removeClass('mycart__active');
+            }
+        });
+
+        // Close MyCart on click outside of MyCart
+        $(document).on('click', function(e) {
+            if ($(_this.$myCart).hasClass('mycart__active')) {
+                console.log('sdasd')
+                console.log(e.target)
+                let element = e.target;
+                if (element.hasClass('mycart__active')) {
+                    console.log('ima klasu')
+                }
+                // if ($(e.target).is('.mycart') === false) {
+                //     _this.$myCart.removeClass('mycart__active');
+                //     console.log('drugi if')
+                // }
+            }
+        });
+
         // Event for function remove items from cart list 
         this.$del.on('click', this.removeItem.bind(this));
 
