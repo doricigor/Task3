@@ -209,7 +209,9 @@ const app = {
 
             // Function for show added item and delite it after 3 sec from popup window
             this.showAndDelete();
-        } 
+        } else {
+            alert('Insert QTY please');
+        }
     },
    
     // Create hover cart
