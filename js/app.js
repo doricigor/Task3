@@ -17,7 +17,8 @@ const app = {
     $totalItem: $('.header__totalItem'),
     $mycart__list: $('.mycart__list'),
     $addedCart__list: $('.added__cartContainer'),
-    $close: $('.close'),
+    $close: $('.closeHover'),
+    $hideAlert: $('.close'),
     total: 0,
     lastItem: 0,
     allProducts: [],
@@ -44,19 +45,12 @@ const app = {
             $('.mycart').toggleClass('mycart__active');
         });
 
-        // // Close MyCart on click outside of MyCart
-        // $(document).on('click', function(e) {
-        //                if (!_this.$myCart.is(e.target) && _this.$myCart.has(e.target).length === 0) {
-        //         console.log('asdasd');
-        //     }
-        //     // let element = e.target;
-        //     // if ($('.mycart').hasClass('mycart__active')) {
-
-        //     //     if ($(element).is('.mycart') === false) {
-        //     //         $('.mycart').removeClass('mycart__active');
-        //     //     }
-        //     // }
-        // });
+        // Close MyCart on click outside of MyCart
+        $(document).on('click', function(e) {
+            if (!$('.mycart, .mycart *').is(e.target) && !$('.added__cart, .added__cart *').is(e.target) && !$('.header__right, .header__right *').is(e.target)) {
+                _this.$myCart.removeClass('mycart__active');
+            }
+        });
 
         // Close MyCart on ESC
         $(document).on('keyup', function(e) {
@@ -94,6 +88,11 @@ const app = {
                 $('.product__arrow i').html('');
             }
         }).resize();
+
+        // Hide red alert
+        this.$hideAlert.on('click', function (e) { 
+            $(e.target).parent().parent().hide();
+        });
     },
 
     // ------------- Functions -------------
@@ -210,14 +209,18 @@ const app = {
             // Function for show added item and delite it after 3 sec from popup window
             this.showAndDelete();
         } else {
-            alert('Insert QTY please');
+            // Show alert
+            $('.alert').show();
+            setTimeout( function(){
+                $('.alert').hide();
+            },2000);
         }
     },
    
     // Create hover cart
     createHover: function(lastItem) {
         const hoverHtml = `
-        <span class="close"><i class="fas fa-times"></i></span>
+        <span class="closeHover"><i class="fas fa-times"></i></span>
             <div class="added__item">
                 <div class="product__img"><img src=${lastItem.img} alt="sat"></div>
                 <div class="product__brand">${lastItem.brand} 

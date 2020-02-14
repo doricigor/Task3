@@ -94,6 +94,7 @@
 
 .products__item--qty {
     margin-left: 120px;
+    position: relative;
 
     @include responsive(lg) {
         margin-left: 64px;
@@ -324,13 +325,21 @@
     }
 }
 
+// Red alert msg
 .alert {
-    width: 250px;
+    width: 130px;
     position: absolute;
-    left: 50%;
-    top: 20%;
-    transform: translate(-50%, -50%);
+    top: -65px;
+    right: -50px;
+    text-align: center;
+    font-size: 11px;
+    padding: 7px 15px 7px 5px;
     display: none;
+    margin: 0;
+}
+
+.close {
+    font-size: 16px;
 }
 
 .product__qtyNum {
